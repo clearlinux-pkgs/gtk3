@@ -77,7 +77,6 @@ libgdk-3.so.0:gdk_device_get_name
 libgdk-3.so.0:gdk_device_get_position
 libgdk-3.so.0:gdk_device_get_position_double
 libgdk-3.so.0:gdk_device_get_product_id
-libgdk-3.so.0:gdk_device_get_seat
 libgdk-3.so.0:gdk_device_get_source
 libgdk-3.so.0:gdk_device_get_state
 libgdk-3.so.0:gdk_device_get_type
@@ -108,7 +107,6 @@ libgdk-3.so.0:gdk_display_get_default
 libgdk-3.so.0:gdk_display_get_default_cursor_size
 libgdk-3.so.0:gdk_display_get_default_group
 libgdk-3.so.0:gdk_display_get_default_screen
-libgdk-3.so.0:gdk_display_get_default_seat
 libgdk-3.so.0:gdk_display_get_device_manager
 libgdk-3.so.0:gdk_display_get_event
 libgdk-3.so.0:gdk_display_get_maximal_cursor_size
@@ -122,7 +120,6 @@ libgdk-3.so.0:gdk_display_has_pending
 libgdk-3.so.0:gdk_display_is_closed
 libgdk-3.so.0:gdk_display_keyboard_ungrab
 libgdk-3.so.0:gdk_display_list_devices
-libgdk-3.so.0:gdk_display_list_seats
 libgdk-3.so.0:gdk_display_manager_get
 libgdk-3.so.0:gdk_display_manager_get_default_display
 libgdk-3.so.0:gdk_display_manager_get_type
@@ -153,23 +150,17 @@ libgdk-3.so.0:gdk_drag_abort
 libgdk-3.so.0:gdk_drag_action_get_type
 libgdk-3.so.0:gdk_drag_begin
 libgdk-3.so.0:gdk_drag_begin_for_device
-libgdk-3.so.0:gdk_drag_begin_from_point
-libgdk-3.so.0:gdk_drag_cancel_reason_get_type
 libgdk-3.so.0:gdk_drag_context_get_actions
 libgdk-3.so.0:gdk_drag_context_get_dest_window
 libgdk-3.so.0:gdk_drag_context_get_device
-libgdk-3.so.0:gdk_drag_context_get_drag_window
 libgdk-3.so.0:gdk_drag_context_get_protocol
 libgdk-3.so.0:gdk_drag_context_get_selected_action
 libgdk-3.so.0:gdk_drag_context_get_source_window
 libgdk-3.so.0:gdk_drag_context_get_suggested_action
 libgdk-3.so.0:gdk_drag_context_get_type
 libgdk-3.so.0:gdk_drag_context_list_targets
-libgdk-3.so.0:gdk_drag_context_manage_dnd
 libgdk-3.so.0:gdk_drag_context_set_device
-libgdk-3.so.0:gdk_drag_context_set_hotspot
 libgdk-3.so.0:gdk_drag_drop
-libgdk-3.so.0:gdk_drag_drop_done
 libgdk-3.so.0:gdk_drag_drop_succeeded
 libgdk-3.so.0:gdk_drag_find_window_for_screen
 libgdk-3.so.0:gdk_drag_get_selection
@@ -197,14 +188,12 @@ libgdk-3.so.0:gdk_event_get_root_coords
 libgdk-3.so.0:gdk_event_get_screen
 libgdk-3.so.0:gdk_event_get_scroll_deltas
 libgdk-3.so.0:gdk_event_get_scroll_direction
-libgdk-3.so.0:gdk_event_get_seat
 libgdk-3.so.0:gdk_event_get_source_device
 libgdk-3.so.0:gdk_event_get_state
 libgdk-3.so.0:gdk_event_get_time
 libgdk-3.so.0:gdk_event_get_type
 libgdk-3.so.0:gdk_event_get_window
 libgdk-3.so.0:gdk_event_handler_set
-libgdk-3.so.0:gdk_event_is_scroll_stop_event
 libgdk-3.so.0:gdk_event_mask_get_type
 libgdk-3.so.0:gdk_event_new
 libgdk-3.so.0:gdk_event_peek
@@ -258,7 +247,6 @@ libgdk-3.so.0:gdk_gl_context_get_shared_context
 libgdk-3.so.0:gdk_gl_context_get_type
 libgdk-3.so.0:gdk_gl_context_get_version
 libgdk-3.so.0:gdk_gl_context_get_window
-libgdk-3.so.0:gdk_gl_context_is_legacy
 libgdk-3.so.0:gdk_gl_context_make_current
 libgdk-3.so.0:gdk_gl_context_realize
 libgdk-3.so.0:gdk_gl_context_set_debug_enabled
@@ -327,7 +315,6 @@ libgdk-3.so.0:gdk_property_get
 libgdk-3.so.0:gdk_property_state_get_type
 libgdk-3.so.0:gdk_query_depths
 libgdk-3.so.0:gdk_query_visual_types
-libgdk-3.so.0:gdk_rectangle_equal
 libgdk-3.so.0:gdk_rectangle_get_type
 libgdk-3.so.0:gdk_rectangle_intersect
 libgdk-3.so.0:gdk_rectangle_union
@@ -375,15 +362,6 @@ libgdk-3.so.0:gdk_screen_set_resolution
 libgdk-3.so.0:gdk_screen_width
 libgdk-3.so.0:gdk_screen_width_mm
 libgdk-3.so.0:gdk_scroll_direction_get_type
-libgdk-3.so.0:gdk_seat_capabilities_get_type
-libgdk-3.so.0:gdk_seat_get_capabilities
-libgdk-3.so.0:gdk_seat_get_display
-libgdk-3.so.0:gdk_seat_get_keyboard
-libgdk-3.so.0:gdk_seat_get_pointer
-libgdk-3.so.0:gdk_seat_get_slaves
-libgdk-3.so.0:gdk_seat_get_type
-libgdk-3.so.0:gdk_seat_grab
-libgdk-3.so.0:gdk_seat_ungrab
 libgdk-3.so.0:gdk_selection_convert
 libgdk-3.so.0:gdk_selection_owner_get
 libgdk-3.so.0:gdk_selection_owner_get_for_display
@@ -938,12 +916,10 @@ libgtk-3.so.0:gtk_application_set_accels_for_action
 libgtk-3.so.0:gtk_application_set_app_menu
 libgtk-3.so.0:gtk_application_set_menubar
 libgtk-3.so.0:gtk_application_uninhibit
-libgtk-3.so.0:gtk_application_window_get_help_overlay
 libgtk-3.so.0:gtk_application_window_get_id
 libgtk-3.so.0:gtk_application_window_get_show_menubar
 libgtk-3.so.0:gtk_application_window_get_type
 libgtk-3.so.0:gtk_application_window_new
-libgtk-3.so.0:gtk_application_window_set_help_overlay
 libgtk-3.so.0:gtk_application_window_set_show_menubar
 libgtk-3.so.0:gtk_arrow_accessible_get_type
 libgtk-3.so.0:gtk_arrow_get_type
@@ -1789,12 +1765,6 @@ libgtk-3.so.0:gtk_file_chooser_get_use_preview_label
 libgtk-3.so.0:gtk_file_chooser_list_filters
 libgtk-3.so.0:gtk_file_chooser_list_shortcut_folder_uris
 libgtk-3.so.0:gtk_file_chooser_list_shortcut_folders
-libgtk-3.so.0:gtk_file_chooser_native_get_accept_label
-libgtk-3.so.0:gtk_file_chooser_native_get_cancel_label
-libgtk-3.so.0:gtk_file_chooser_native_get_type
-libgtk-3.so.0:gtk_file_chooser_native_new
-libgtk-3.so.0:gtk_file_chooser_native_set_accept_label
-libgtk-3.so.0:gtk_file_chooser_native_set_cancel_label
 libgtk-3.so.0:gtk_file_chooser_remove_filter
 libgtk-3.so.0:gtk_file_chooser_remove_shortcut_folder
 libgtk-3.so.0:gtk_file_chooser_remove_shortcut_folder_uri
@@ -2293,7 +2263,6 @@ libgtk-3.so.0:gtk_im_context_set_client_window
 libgtk-3.so.0:gtk_im_context_set_cursor_location
 libgtk-3.so.0:gtk_im_context_set_surrounding
 libgtk-3.so.0:gtk_im_context_set_use_preedit
-libgtk-3.so.0:gtk_im_context_simple_add_compose_file
 libgtk-3.so.0:gtk_im_context_simple_add_table
 libgtk-3.so.0:gtk_im_context_simple_get_type
 libgtk-3.so.0:gtk_im_context_simple_new
@@ -2665,18 +2634,6 @@ libgtk-3.so.0:gtk_mount_operation_new
 libgtk-3.so.0:gtk_mount_operation_set_parent
 libgtk-3.so.0:gtk_mount_operation_set_screen
 libgtk-3.so.0:gtk_movement_step_get_type
-libgtk-3.so.0:gtk_native_dialog_destroy
-libgtk-3.so.0:gtk_native_dialog_get_modal
-libgtk-3.so.0:gtk_native_dialog_get_title
-libgtk-3.so.0:gtk_native_dialog_get_transient_for
-libgtk-3.so.0:gtk_native_dialog_get_type
-libgtk-3.so.0:gtk_native_dialog_get_visible
-libgtk-3.so.0:gtk_native_dialog_hide
-libgtk-3.so.0:gtk_native_dialog_run
-libgtk-3.so.0:gtk_native_dialog_set_modal
-libgtk-3.so.0:gtk_native_dialog_set_title
-libgtk-3.so.0:gtk_native_dialog_set_transient_for
-libgtk-3.so.0:gtk_native_dialog_show
 libgtk-3.so.0:gtk_notebook_accessible_get_type
 libgtk-3.so.0:gtk_notebook_append_page
 libgtk-3.so.0:gtk_notebook_append_page_menu
@@ -2892,8 +2849,6 @@ libgtk-3.so.0:gtk_plug_new_for_display
 libgtk-3.so.0:gtk_policy_type_get_type
 libgtk-3.so.0:gtk_popover_accessible_get_type
 libgtk-3.so.0:gtk_popover_bind_model
-libgtk-3.so.0:gtk_popover_constraint_get_type
-libgtk-3.so.0:gtk_popover_get_constrain_to
 libgtk-3.so.0:gtk_popover_get_default_widget
 libgtk-3.so.0:gtk_popover_get_modal
 libgtk-3.so.0:gtk_popover_get_pointing_to
@@ -2906,7 +2861,6 @@ libgtk-3.so.0:gtk_popover_menu_new
 libgtk-3.so.0:gtk_popover_menu_open_submenu
 libgtk-3.so.0:gtk_popover_new
 libgtk-3.so.0:gtk_popover_new_from_model
-libgtk-3.so.0:gtk_popover_set_constrain_to
 libgtk-3.so.0:gtk_popover_set_default_widget
 libgtk-3.so.0:gtk_popover_set_modal
 libgtk-3.so.0:gtk_popover_set_pointing_to
@@ -3397,7 +3351,6 @@ libgtk-3.so.0:gtk_relief_style_get_type
 libgtk-3.so.0:gtk_render_activity
 libgtk-3.so.0:gtk_render_arrow
 libgtk-3.so.0:gtk_render_background
-libgtk-3.so.0:gtk_render_background_get_clip
 libgtk-3.so.0:gtk_render_check
 libgtk-3.so.0:gtk_render_expander
 libgtk-3.so.0:gtk_render_extension
@@ -3558,17 +3511,11 @@ libgtk-3.so.0:gtk_settings_get_for_screen
 libgtk-3.so.0:gtk_settings_get_type
 libgtk-3.so.0:gtk_settings_install_property
 libgtk-3.so.0:gtk_settings_install_property_parser
-libgtk-3.so.0:gtk_settings_reset_property
 libgtk-3.so.0:gtk_settings_set_double_property
 libgtk-3.so.0:gtk_settings_set_long_property
 libgtk-3.so.0:gtk_settings_set_property_value
 libgtk-3.so.0:gtk_settings_set_string_property
 libgtk-3.so.0:gtk_shadow_type_get_type
-libgtk-3.so.0:gtk_shortcut_type_get_type
-libgtk-3.so.0:gtk_shortcuts_group_get_type
-libgtk-3.so.0:gtk_shortcuts_section_get_type
-libgtk-3.so.0:gtk_shortcuts_shortcut_get_type
-libgtk-3.so.0:gtk_shortcuts_window_get_type
 libgtk-3.so.0:gtk_show_about_dialog
 libgtk-3.so.0:gtk_show_uri
 libgtk-3.so.0:gtk_size_group_add_widget
@@ -3746,7 +3693,6 @@ libgtk-3.so.0:gtk_style_context_lookup_icon_set
 libgtk-3.so.0:gtk_style_context_new
 libgtk-3.so.0:gtk_style_context_notify_state_change
 libgtk-3.so.0:gtk_style_context_pop_animatable_region
-libgtk-3.so.0:gtk_style_context_print_flags_get_type
 libgtk-3.so.0:gtk_style_context_push_animatable_region
 libgtk-3.so.0:gtk_style_context_remove_class
 libgtk-3.so.0:gtk_style_context_remove_provider
@@ -3766,7 +3712,6 @@ libgtk-3.so.0:gtk_style_context_set_scale
 libgtk-3.so.0:gtk_style_context_set_screen
 libgtk-3.so.0:gtk_style_context_set_state
 libgtk-3.so.0:gtk_style_context_state_is_running
-libgtk-3.so.0:gtk_style_context_to_string
 libgtk-3.so.0:gtk_style_copy
 libgtk-3.so.0:gtk_style_detach
 libgtk-3.so.0:gtk_style_get
@@ -4058,7 +4003,6 @@ libgtk-3.so.0:gtk_text_iter_set_visible_line_index
 libgtk-3.so.0:gtk_text_iter_set_visible_line_offset
 libgtk-3.so.0:gtk_text_iter_starts_line
 libgtk-3.so.0:gtk_text_iter_starts_sentence
-libgtk-3.so.0:gtk_text_iter_starts_tag
 libgtk-3.so.0:gtk_text_iter_starts_word
 libgtk-3.so.0:gtk_text_iter_toggles_tag
 libgtk-3.so.0:gtk_text_layout_changed
@@ -4116,7 +4060,6 @@ libgtk-3.so.0:gtk_text_mark_get_visible
 libgtk-3.so.0:gtk_text_mark_new
 libgtk-3.so.0:gtk_text_mark_set_visible
 libgtk-3.so.0:gtk_text_search_flags_get_type
-libgtk-3.so.0:gtk_text_tag_changed
 libgtk-3.so.0:gtk_text_tag_event
 libgtk-3.so.0:gtk_text_tag_get_priority
 libgtk-3.so.0:gtk_text_tag_get_type
@@ -4179,7 +4122,6 @@ libgtk-3.so.0:gtk_text_view_move_visually
 libgtk-3.so.0:gtk_text_view_new
 libgtk-3.so.0:gtk_text_view_new_with_buffer
 libgtk-3.so.0:gtk_text_view_place_cursor_onscreen
-libgtk-3.so.0:gtk_text_view_reset_cursor_blink
 libgtk-3.so.0:gtk_text_view_reset_im_context
 libgtk-3.so.0:gtk_text_view_scroll_mark_onscreen
 libgtk-3.so.0:gtk_text_view_scroll_to_iter
@@ -4752,7 +4694,6 @@ libgtk-3.so.0:gtk_widget_child_notify
 libgtk-3.so.0:gtk_widget_class_bind_template_callback_full
 libgtk-3.so.0:gtk_widget_class_bind_template_child_full
 libgtk-3.so.0:gtk_widget_class_find_style_property
-libgtk-3.so.0:gtk_widget_class_get_css_name
 libgtk-3.so.0:gtk_widget_class_install_style_property
 libgtk-3.so.0:gtk_widget_class_install_style_property_parser
 libgtk-3.so.0:gtk_widget_class_list_style_properties
@@ -4760,7 +4701,6 @@ libgtk-3.so.0:gtk_widget_class_path
 libgtk-3.so.0:gtk_widget_class_set_accessible_role
 libgtk-3.so.0:gtk_widget_class_set_accessible_type
 libgtk-3.so.0:gtk_widget_class_set_connect_func
-libgtk-3.so.0:gtk_widget_class_set_css_name
 libgtk-3.so.0:gtk_widget_class_set_template
 libgtk-3.so.0:gtk_widget_class_set_template_from_resource
 libgtk-3.so.0:gtk_widget_compute_expand
@@ -4778,7 +4718,6 @@ libgtk-3.so.0:gtk_widget_get_accessible
 libgtk-3.so.0:gtk_widget_get_action_group
 libgtk-3.so.0:gtk_widget_get_allocated_baseline
 libgtk-3.so.0:gtk_widget_get_allocated_height
-libgtk-3.so.0:gtk_widget_get_allocated_size
 libgtk-3.so.0:gtk_widget_get_allocated_width
 libgtk-3.so.0:gtk_widget_get_allocation
 libgtk-3.so.0:gtk_widget_get_ancestor
@@ -4798,7 +4737,6 @@ libgtk-3.so.0:gtk_widget_get_direction
 libgtk-3.so.0:gtk_widget_get_display
 libgtk-3.so.0:gtk_widget_get_double_buffered
 libgtk-3.so.0:gtk_widget_get_events
-libgtk-3.so.0:gtk_widget_get_focus_on_click
 libgtk-3.so.0:gtk_widget_get_font_map
 libgtk-3.so.0:gtk_widget_get_font_options
 libgtk-3.so.0:gtk_widget_get_frame_clock
@@ -4915,7 +4853,6 @@ libgtk-3.so.0:gtk_widget_path_iter_add_region
 libgtk-3.so.0:gtk_widget_path_iter_clear_classes
 libgtk-3.so.0:gtk_widget_path_iter_clear_regions
 libgtk-3.so.0:gtk_widget_path_iter_get_name
-libgtk-3.so.0:gtk_widget_path_iter_get_object_name
 libgtk-3.so.0:gtk_widget_path_iter_get_object_type
 libgtk-3.so.0:gtk_widget_path_iter_get_sibling_index
 libgtk-3.so.0:gtk_widget_path_iter_get_siblings
@@ -4931,7 +4868,6 @@ libgtk-3.so.0:gtk_widget_path_iter_list_regions
 libgtk-3.so.0:gtk_widget_path_iter_remove_class
 libgtk-3.so.0:gtk_widget_path_iter_remove_region
 libgtk-3.so.0:gtk_widget_path_iter_set_name
-libgtk-3.so.0:gtk_widget_path_iter_set_object_name
 libgtk-3.so.0:gtk_widget_path_iter_set_object_type
 libgtk-3.so.0:gtk_widget_path_iter_set_state
 libgtk-3.so.0:gtk_widget_path_length
@@ -4942,7 +4878,6 @@ libgtk-3.so.0:gtk_widget_path_to_string
 libgtk-3.so.0:gtk_widget_path_unref
 libgtk-3.so.0:gtk_widget_pop_composite_child
 libgtk-3.so.0:gtk_widget_push_composite_child
-libgtk-3.so.0:gtk_widget_queue_allocate
 libgtk-3.so.0:gtk_widget_queue_compute_expand
 libgtk-3.so.0:gtk_widget_queue_draw
 libgtk-3.so.0:gtk_widget_queue_draw_area
@@ -4976,7 +4911,6 @@ libgtk-3.so.0:gtk_widget_set_device_events
 libgtk-3.so.0:gtk_widget_set_direction
 libgtk-3.so.0:gtk_widget_set_double_buffered
 libgtk-3.so.0:gtk_widget_set_events
-libgtk-3.so.0:gtk_widget_set_focus_on_click
 libgtk-3.so.0:gtk_widget_set_font_map
 libgtk-3.so.0:gtk_widget_set_font_options
 libgtk-3.so.0:gtk_widget_set_halign
