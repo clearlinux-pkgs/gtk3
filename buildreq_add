@@ -3,3 +3,9 @@
 gobject-introspection-dev
 inputproto
 libXinerama-dev
+wayland-dev
+wayland-protocols-dev
+docbook-xml
+libinput-dev
+libxkbcommon-dev
+
