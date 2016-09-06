@@ -8,4 +8,4 @@ wayland-protocols-dev
 docbook-xml
 libinput-dev
 libxkbcommon-dev
-
+mesa-dev

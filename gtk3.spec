@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.20.9
-Release  : 4
+Release  : 5
 URL      : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.20/gtk+-3.20.9.tar.xz
 Source0  : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.20/gtk+-3.20.9.tar.xz
 Summary  : GTK+ Drawing Kit
@@ -25,6 +25,7 @@ BuildRequires : libXinerama-dev
 BuildRequires : libinput-dev
 BuildRequires : libxkbcommon-dev
 BuildRequires : libxslt-bin
+BuildRequires : mesa-dev
 BuildRequires : perl(XML::Parser)
 BuildRequires : pkgconfig(atk)
 BuildRequires : pkgconfig(atk-bridge-2.0)
@@ -223,8 +224,14 @@ rm -rf %{buildroot}
 /usr/include/gtk-3.0/gdk/gdktypes.h
 /usr/include/gtk-3.0/gdk/gdkversionmacros.h
 /usr/include/gtk-3.0/gdk/gdkvisual.h
+/usr/include/gtk-3.0/gdk/gdkwayland.h
 /usr/include/gtk-3.0/gdk/gdkwindow.h
 /usr/include/gtk-3.0/gdk/gdkx.h
+/usr/include/gtk-3.0/gdk/wayland/gdkwaylanddevice.h
+/usr/include/gtk-3.0/gdk/wayland/gdkwaylanddisplay.h
+/usr/include/gtk-3.0/gdk/wayland/gdkwaylandglcontext.h
+/usr/include/gtk-3.0/gdk/wayland/gdkwaylandselection.h
+/usr/include/gtk-3.0/gdk/wayland/gdkwaylandwindow.h
 /usr/include/gtk-3.0/gdk/x11/gdkx-autocleanups.h
 /usr/include/gtk-3.0/gdk/x11/gdkx11applaunchcontext.h
 /usr/include/gtk-3.0/gdk/x11/gdkx11cursor.h

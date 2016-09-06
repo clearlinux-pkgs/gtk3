@@ -1,4 +1,5 @@
 libX11.so.6
+libXdamage.so.1
 libXext.so.6
 libXfixes.so.3
 libXi.so.6
@@ -23,3 +24,7 @@ libpangocairo-1.0.so.0
 libpangoft2-1.0.so.0
 libpthread.so.0
 librt.so.1
+libwayland-client.so.0
+libwayland-cursor.so.0
+libwayland-egl.so.1
+libxkbcommon.so.0
