@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.20.9
-Release  : 5
+Release  : 6
 URL      : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.20/gtk+-3.20.9.tar.xz
 Source0  : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.20/gtk+-3.20.9.tar.xz
 Summary  : GTK+ Drawing Kit
