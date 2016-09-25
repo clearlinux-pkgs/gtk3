@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.22.0
-Release  : 7
+Release  : 8
 URL      : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.22/gtk+-3.22.0.tar.xz
 Source0  : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.22/gtk+-3.22.0.tar.xz
 Summary  : GTK+ Drawing Kit
@@ -38,6 +38,7 @@ BuildRequires : pkgconfig(harfbuzz)
 BuildRequires : pkgconfig(json-glib-1.0)
 BuildRequires : pkgconfig(libxml-2.0)
 BuildRequires : pkgconfig(pango)
+BuildRequires : pkgconfig(rest-0.7)
 BuildRequires : pkgconfig(xi)
 BuildRequires : wayland-dev
 BuildRequires : wayland-protocols-dev
@@ -1295,6 +1296,7 @@ rm -rf %{buildroot}
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-ti-et.so
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-viqr.so
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-xim.so
+/usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-cloudprint.so
 /usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-file.so
 /usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-lpr.so
 
