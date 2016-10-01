@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.22.0
-Release  : 8
+Release  : 9
 URL      : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.22/gtk+-3.22.0.tar.xz
 Source0  : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.22/gtk+-3.22.0.tar.xz
 Summary  : GTK+ Drawing Kit
@@ -39,7 +39,9 @@ BuildRequires : pkgconfig(json-glib-1.0)
 BuildRequires : pkgconfig(libxml-2.0)
 BuildRequires : pkgconfig(pango)
 BuildRequires : pkgconfig(rest-0.7)
+BuildRequires : pkgconfig(xcomposite)
 BuildRequires : pkgconfig(xi)
+BuildRequires : pkgconfig(xrandr)
 BuildRequires : wayland-dev
 BuildRequires : wayland-protocols-dev
 
@@ -110,7 +112,12 @@ locales components for the gtk3 package.
 
 %build
 export LANG=C
-%configure --disable-static
+%configure --disable-static --enable-wayland-backend \
+--enable-x11-backend \
+--enable-xdamage \
+--enable-xcomposite \
+--enable-xrandr \
+--enable-xinerama
 make V=1  %{?_smp_mflags}
 
 %check
@@ -149,9 +156,6 @@ rm -rf %{buildroot}
 /usr/share/applications/gtk3-widget-factory.desktop
 /usr/share/gettext/its/gtkbuilder.its
 /usr/share/gettext/its/gtkbuilder.loc
-/usr/share/gir-1.0/Gdk-3.0.gir
-/usr/share/gir-1.0/GdkX11-3.0.gir
-/usr/share/gir-1.0/Gtk-3.0.gir
 /usr/share/glib-2.0/schemas/org.gtk.Demo.gschema.xml
 /usr/share/glib-2.0/schemas/org.gtk.Settings.ColorChooser.gschema.xml
 /usr/share/glib-2.0/schemas/org.gtk.Settings.Debug.gschema.xml
@@ -587,6 +591,7 @@ rm -rf %{buildroot}
 /usr/lib64/girepository-1.0/Gtk-3.0.typelib
 /usr/lib64/pkgconfig/*.pc
 /usr/share/aclocal/*.m4
+/usr/share/gir-1.0/*.gir
 
 %files doc
 %defattr(-,root,root,-)

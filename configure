@@ -1,0 +1,6 @@
+--enable-wayland-backend
+--enable-x11-backend
+--enable-xdamage
+--enable-xcomposite
+--enable-xrandr
+--enable-xinerama
