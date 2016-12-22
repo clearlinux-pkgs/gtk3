@@ -1,3 +1,165 @@
+Overview of Changes in GTK+ 3.22.5
+==================================
+
+* gtk3-demo now has an example for using PangoTabArray to create a multi-column layout
+
+* Bug fixes:
+ 771242 opening menu for certain types of GtkComboBox causes Gdk-CRITICAL assertion...
+ 774114 Window shadows are repainted even if only the contents of the window change
+ 774265 No tilt for wintab devices
+ 774379 gdk: mingw64 builds segfault during initialization of Huion H610PRO wintab
+ 774686 GtkMenu does not unref all GtkCheckMenuItem it creates
+ 774695 GtkProgressbar needs full and empty classes
+ 774699 list iteration regression causes odd-indexed devices to be ignored during l...
+ 774743 GtkNotebook does not unref all GtkBuiltinIcon it creates
+ 774760 inspector: ensure controller is a GtkGesture
+ 774790 GtkTextHandle does not unref all GtkAdjustment it references
+ 774893 Application font sizes scaling gets clamped to 1.00 when starting GtkInspector
+ 774915 Destroying the parent of a subsurface causes _gdk_window_destroy_hierarchy:...
+ 774917 [wayland] child subsurfaces need to be placed relative to their parent
+ 774939 GtkLabelAccessible: Initialize link before setting parent
+ 775212 GtkScaleButton does not unref all GtkAdjustment it references
+ 775316 gtk_drag_source_set_icon_pixbuf references the pixbuf received once too much
+ 775319 gdk_window_get_toplevel() fails to return the toplevel of a child subsurface
+ 775525 gtk_flow_box_get_child_at_index shouldn't crash with an invalid index
+
+* Translation updates:
+ Hungarian
+ Italian
+ Kazakh
+ Russian
+ Swedish
+
+
+Overview of Changes in GTK+ 3.22.4
+==================================
+
+* Bug fixes:
+ 767713 Fullscreen in wayland is buggy
+ 768081 Enable HiDPI support for GDK-Win32
+ 768531 wayland: Startup notification doesn't work on some apps (eg. gnome-terminal)...
+ 772075 GTK+ uses a lot more CPU under Wayland than under X11
+ 772202 Handling of scaled monitors is broken
+ 773587 recent-manager: Add a limit to the list's size
+ 773916 GtkComposeTable caches broken: using a same ~/.XCompose does not work twice...
+ 773979 GdkGLContext does not chain finalize handler
+ 774046 GtkSpinButton does not always unref priv->{up,down}_button
+ 774066 GtkHeaderBar does not unref all GtkBox and GtkSeparator it creates
+ 774097 GtkPrintOperation should not truncate job names
+ 774185 GtkPlacesSidebar does not unref itsel as many times as it references
+ 774352 GtkAppChooserWidget does not unref all GAppInfo it references
+
+* Translation updates:
+ Czech
+ Dutch
+
+
+Overview of Changes in GTK+ 3.22.3
+==================================
+
+* Deprecations have been added for APIs that will be removed
+  in GTK+ 4
+
+* gtk-demo has gained a new demo for showing (and testing)
+  rendering preformance
+
+* Windows:
+ - The GL support has been improved. Legacy contexts can now
+   be created, and anti-aliasing is possible
+ - Hi-DPI is now supported
+
+* Bugs fixed:
+ 768081 Enable HiDPI support for GDK-Win32
+ 773274 [Wayland] Crash under gdk_wayland_window_attach_image()
+ 773474 Color chooser dialog opened with show-editor=TRUE has black header bar
+ 773479 Typo in GtkShortcutType developer docs
+ 773528 Improve GL support on Windows
+ 773799 GtkLevelBar doesn't update blocks on discrete mode
+ 773857 gdkwindow-x11: Add support for gdk_window_fullscreen_on_monitor
+ 773885 pop down GtkPopover on pressing escape
+
+* Translation updates:
+ Serbian
+
+
+Overview of Changes in GTK+ 3.22.2
+==================================
+
+* Several improvements to the win32 theme
+
+* Deprecations have been added for APIs that will be removed
+  in GTK+ 4
+
+* Bug fixes:
+ 767713 Fullscreen in wayland is buggy
+ 771320 Maps widget is displayed at wrong position inside gnome-contacts
+ 772345 placesviewrow: busy_spinner when visible offsets the rest of the...
+ 772389 Appending a character to a GtkEntry control in overwrite mode ri...
+ 772415 Avoid calling eglGetDisplay
+ 772552 Deprecate gtk_menu_popup
+ 772683 Usage of FALSE instead of gint in glarea demo
+ 772695 Show the keyboard shortcuts from left to right even in RTL
+ 772775 menu bindings needs attribute to force LTR for horizontal-button...
+ 772859 Fix memory leaks in implementations of common widgets
+ 772922 GtkMenu: Try using gdk_window_move_to_rect() more often
+ 772926 shortcutswindow: working version of set_section_name()
+ 773029 style-set signal problem
+ 773082 overlay: Document availability of properties
+ 773113 tests: fix clipboard test by loading correct icon
+ 773180 Don't second-guess whether our GDK GL context is GLES
+ 773246 Typo in css color definitions documentation 
+
+* Translation updates:
+ Croatian
+ Danish
+ Dutch
+ German
+ Greek
+ Italian
+ Latvian
+ Lithuanian
+ Norwegian bokmal
+ Polish
+
+
+Overview of Changes in GTK+ 3.22.1
+==================================
+
+* Reduce runtime warnings
+
+* Bug fixes:
+ 765649 icons missing in file chooser (errors on console)
+ 769500 adwaita: GtkWidget:sensitive animation should not cause "On" ...
+ 769554 [Mir] Touchpad scrolling not as smooth as it should be
+ 770388 GtkTreeView: attempt to underallocate GtkTreeView's child Gtk...
+ 771516 wayland: Only 'moved-to-rect' if move_to_rect() was used
+ 771553 Shrinking window generates a black patch when gl is used
+ 771666 sftp:// property not set for translation in 3.21.92
+ 771812 Crash when reparenting a popover with a non-null parent_scrol...
+ 771826 Some missing nullable annotation
+ 771915 [Wayland]: Totem window misplaced after a state change
+ 771959 gtk_init_with_args fails when no display is found / does not ...
+ 771963 GtkPaned warning in gtk_paned_realize
+ 772057 Fix wrong URL copy/paste (patch)
+ 772215 icon-theme: Fix leaks on error
+
+* Translation updates:
+ Arabic
+ Basque
+ Brazilian Portuguese
+ Croatian
+ Czech
+ French
+ German
+ Hebrew
+ Hungarian
+ Kazakh
+ Korean
+ Polish
+ Slovak
+ Swedish
+
+
 Overview of Changes in GTK+ 3.22.0
 ==================================
 
