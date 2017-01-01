@@ -9,3 +9,14 @@ epoxy
 libxml-2.0
 xrandr
 xcomposite
+32atk
+32pango
+32gdk-pixbuf-2.0
+32atk-bridge-2.0
+32xi
+32epoxy
+32libxml-2.0
+32xrandr
+32xcomposite
+32xfixes
+32xdamage
