@@ -1932,6 +1932,7 @@ libgtk-3.so.0:gtk_flow_box_child_is_selected
 libgtk-3.so.0:gtk_flow_box_child_new
 libgtk-3.so.0:gtk_flow_box_get_activate_on_single_click
 libgtk-3.so.0:gtk_flow_box_get_child_at_index
+libgtk-3.so.0:gtk_flow_box_get_child_at_pos
 libgtk-3.so.0:gtk_flow_box_get_column_spacing
 libgtk-3.so.0:gtk_flow_box_get_homogeneous
 libgtk-3.so.0:gtk_flow_box_get_max_children_per_line
