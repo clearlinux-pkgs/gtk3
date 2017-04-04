@@ -4,15 +4,15 @@
 #
 Name     : gtk3
 Version  : 3.22.8
-Release  : 14
+Release  : 15
 URL      : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.22/gtk+-3.22.8.tar.xz
 Source0  : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.22/gtk+-3.22.8.tar.xz
 Summary  : GNOME Accessibility Implementation Library
 Group    : Development/Tools
-License  : GPL-2.0 LGPL-2.0 LGPL-2.1
+License  : LGPL-2.0 LGPL-2.1
 Requires: gtk3-bin
-Requires: gtk3-lib
 Requires: gtk3-data
+Requires: gtk3-lib
 Requires: gtk3-doc
 Requires: gtk3-locales
 BuildRequires : cairo-dev32
@@ -170,7 +170,7 @@ popd
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1487033943
+export SOURCE_DATE_EPOCH=1491321036
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
@@ -204,7 +204,7 @@ export no_proxy=localhost
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1487033943
+export SOURCE_DATE_EPOCH=1491321036
 rm -rf %{buildroot}
 pushd ../build32/
 %make_install32
@@ -240,11 +240,15 @@ popd
 
 %files data
 %defattr(-,root,root,-)
+/usr/lib64/girepository-1.0/Gdk-3.0.typelib
+/usr/lib64/girepository-1.0/GdkX11-3.0.typelib
+/usr/lib64/girepository-1.0/Gtk-3.0.typelib
 /usr/share/applications/gtk3-demo.desktop
 /usr/share/applications/gtk3-icon-browser.desktop
 /usr/share/applications/gtk3-widget-factory.desktop
 /usr/share/gettext/its/gtkbuilder.its
 /usr/share/gettext/its/gtkbuilder.loc
+/usr/share/gir-1.0/*.gir
 /usr/share/glib-2.0/schemas/org.gtk.Demo.gschema.xml
 /usr/share/glib-2.0/schemas/org.gtk.Settings.ColorChooser.gschema.xml
 /usr/share/glib-2.0/schemas/org.gtk.Settings.Debug.gschema.xml
@@ -674,9 +678,6 @@ popd
 /usr/include/gtk-3.0/unix-print/gtk/gtkprintunixdialog.h
 /usr/include/gtk-3.0/unix-print/gtk/gtkunixprint-autocleanups.h
 /usr/include/gtk-3.0/unix-print/gtk/gtkunixprint.h
-/usr/lib64/girepository-1.0/Gdk-3.0.typelib
-/usr/lib64/girepository-1.0/GdkX11-3.0.typelib
-/usr/lib64/girepository-1.0/Gtk-3.0.typelib
 /usr/lib64/libgailutil-3.so
 /usr/lib64/libgdk-3.so
 /usr/lib64/libgtk-3.so
@@ -689,7 +690,6 @@ popd
 /usr/lib64/pkgconfig/gtk+-wayland-3.0.pc
 /usr/lib64/pkgconfig/gtk+-x11-3.0.pc
 /usr/share/aclocal/*.m4
-/usr/share/gir-1.0/*.gir
 
 %files dev32
 %defattr(-,root,root,-)
