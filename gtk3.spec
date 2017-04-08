@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.22.8
-Release  : 15
+Release  : 16
 URL      : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.22/gtk+-3.22.8.tar.xz
 Source0  : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.22/gtk+-3.22.8.tar.xz
 Summary  : GNOME Accessibility Implementation Library
@@ -78,6 +78,7 @@ BuildRequires : pkgconfig(xrandr)
 BuildRequires : wayland-dev
 BuildRequires : wayland-dev32
 BuildRequires : wayland-protocols-dev
+Patch1: segfault.patch
 
 %description
 General Information
@@ -164,13 +165,14 @@ locales components for the gtk3 package.
 
 %prep
 %setup -q -n gtk+-3.22.8
+%patch1 -p1
 pushd ..
 cp -a gtk+-3.22.8 build32
 popd
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1491321036
+export SOURCE_DATE_EPOCH=1491675483
 export CFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -falign-functions=32 -fno-semantic-interposition "
@@ -204,7 +206,7 @@ export no_proxy=localhost
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1491321036
+export SOURCE_DATE_EPOCH=1491675483
 rm -rf %{buildroot}
 pushd ../build32/
 %make_install32

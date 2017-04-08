@@ -1,0 +1,12 @@
+--- gtk+-3.22.0/gtk/gtkstyleproviderprivate.c~	2016-03-26 21:32:35.000000000 +0000
++++ gtk+-3.22.0/gtk/gtkstyleproviderprivate.c	2017-04-08 18:03:12.258391211 +0000
+@@ -120,6 +120,9 @@
+ 
+   gtk_internal_return_val_if_fail (GTK_IS_STYLE_PROVIDER_PRIVATE (provider), NULL);
+ 
++  if (!provider)
++	return NULL;
++
+   iface = GTK_STYLE_PROVIDER_PRIVATE_GET_INTERFACE (provider);
+ 
+   if (!iface->get_settings)
