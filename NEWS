@@ -1,3 +1,108 @@
+Overview of Changes in GTK+ 3.22.12
+===================================
+
+* Bugs:
+ 686838 gtk_enumerate_printers() hangs
+ 734946 Implement GContentType on OSX
+ 773228 third parameter of gtk_widget_intersect not listed as 'out'
+ 776472 Crash in gnome-terminal due to gdk_window_process_all_updates calling...
+ 778853 propagate-natural-width/height request too much with !overlay-scrolling...
+ 779081 GtkTextView: expose API to get Pango line direction
+ 779184 Gtk+4 (3.89.4) with Quartz backend: all apps segfault
+ 780041 Optionally depend on sassc to generate the theme CSS
+ 780234 gtk_print_job_set_page_ranges() has unclear ownership transfer
+ 780734 flowbox: don’t try to focus or draw NULL widgets
+ 780735 flowbox: don’t select when rubberbanding over nothing
+ 780878 docs: Point links to correct versions
+ 780994 Icons are blurry
+
+* Translation updates:
+ Catalan
+ Greek
+ Hebrew
+ Indonesian
+ Norwegian bokmål
+ Polish
+ Russian
+
+
+Overview of Changes in GTK+ 3.22.11
+===================================
+
+* Quartz:
+ - Fix build on < 10.12
+
+* Cosmetic fixes
+
+* Avoid a critical warning in the filechooser portal
+
+
+Overview of Changes in GTK+ 3.22.10
+===================================
+
+* Theme: Improve styling for flow boxes
+
+* Quartz:
+ - Support fullscreen CSD windows
+ - Implement backdrop
+ - Implement gdk_window_set_functions
+
+* Bugs fixed:
+ 778905 Frame: documented flat style class is not usable
+ 779073 style flowbox tiles
+ 779074 style selectionmode checkboxes for flowbox
+ 779317 gtk_pad_controllerpad_set_action issue with incorrect assert
+ 779374 Unprovoked key repeat in gnome-terminal after in 3.22.9
+ 779383 quartz: Let CSD windows be fullscreen
+ 779392 Implement backdrop for Quartz
+
+* Translation updates:
+ Basque
+ Czech
+ Danish
+ Icelandic
+ Indonesian
+ Korean
+ Scottish Gaelic
+ Slovak
+
+
+Overview of Changes in GTK+ 3.22.9
+==================================
+
+* Bugs fixed:
+ 136059	Ctrl-navigation works in opposite direction in right-to-left text
+ 776821	Scale factor not properly propagated upon reparent
+ 778203	icon shown at top left corner when dnd begins
+ 778328	Pressure sensitivity lost after removing pen from screen (Surface Book/MyPaint)
+ 778534	Widget: Document signal mnemonic-activate
+ 778678	gtkshow: Prefer gtk_show_uri_on_window() which works for sandboxed apps
+ 778726	Use gtk_show_uri_on_window()
+ 778746	Rename popover is sometimes misplaced
+ 778835	Wrong screen size returned when in HiDPI mode
+ 778905	Frame: documented flat style class is not usable
+ 779005	GtkFrame: Fix shadow after theme changes
+ 136059 Ctrl-navigation works in opposite direction in right-to-left text
+ 772505 Wayland: menu does not resize after disabling an action
+ 774148 Gtk.Popover misplacement in Wayland
+ 778019 Key repeat under wayland behaves differently, making keyboard navigation e.g. in
+        vim annoyingly unreliable
+
+* Translation updates:
+ Brazilian Portuguese
+ Chinese
+ Chinese (Taiwan)
+ Galician
+ German
+ Hungarian
+ Italian
+ Lithuanian
+ Polish
+ Serbian
+ Spanish
+ Swedish
+
+
 Overview of Changes in GTK+ 3.22.8
 ==================================
 
