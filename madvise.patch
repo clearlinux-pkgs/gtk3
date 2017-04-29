@@ -12,7 +12,7 @@
  
    /* shrink to final size */
    data = g_realloc (data, len);
-+  madvise(data, len, MADV_MERGEABLE);
++  madvise((void*) ( (unsigned long)data & (~4095)), len, MADV_MERGEABLE);
  
    tree = (GtkCssSelectorTree *)data;
  
