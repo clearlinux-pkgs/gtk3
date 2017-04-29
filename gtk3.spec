@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.22.12
-Release  : 19
+Release  : 20
 URL      : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.22/gtk+-3.22.12.tar.xz
 Source0  : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.22/gtk+-3.22.12.tar.xz
 Summary  : GNOME Accessibility Implementation Library
