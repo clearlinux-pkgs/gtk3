@@ -21,3 +21,4 @@ wayland-dev32
 fontconfig-dev32
 freetype-dev32
 libsoup-dev32
+cups-dev
