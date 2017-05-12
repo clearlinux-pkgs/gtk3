@@ -1,1 +1,3 @@
-major3
+alias = gtk+
+major_version = 3
+devel_version = 90 89
