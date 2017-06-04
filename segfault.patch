@@ -10,3 +10,13 @@
    iface = GTK_STYLE_PROVIDER_PRIVATE_GET_INTERFACE (provider);
  
    if (!iface->get_settings)
+--- gtk+-3.22.15/gtk/gtkcssvalue.c~	2016-10-22 04:17:52.000000000 +0000
++++ gtk+-3.22.15/gtk/gtkcssvalue.c	2017-06-04 12:53:04.513036527 +0000
+@@ -90,6 +90,7 @@
+ {
+ 
+   gtk_internal_return_val_if_fail (value != NULL, NULL);
++  gtk_internal_return_val_if_fail (value->class != NULL, NULL);
+   gtk_internal_return_val_if_fail (GTK_IS_STYLE_PROVIDER_PRIVATE (provider), NULL);
+   gtk_internal_return_val_if_fail (GTK_IS_CSS_STYLE (style), NULL);
+   gtk_internal_return_val_if_fail (parent_style == NULL || GTK_IS_CSS_STYLE (parent_style), NULL);
