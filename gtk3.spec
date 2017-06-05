@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.22.15
-Release  : 26
+Release  : 27
 URL      : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.22/gtk+-3.22.15.tar.xz
 Source0  : http://ftp.gnome.org/pub/gnome/sources/gtk+/3.22/gtk+-3.22.15.tar.xz
 Summary  : GNOME Accessibility Implementation Library
@@ -78,6 +78,9 @@ BuildRequires : pkgconfig(xrandr)
 BuildRequires : wayland-dev
 BuildRequires : wayland-dev32
 BuildRequires : wayland-protocols-dev
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 Patch1: segfault.patch
 Patch2: madvise.patch
 Patch3: ignore-cache-datestamp.patch
@@ -179,7 +182,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1494581053
+export SOURCE_DATE_EPOCH=1496706344
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -216,7 +219,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1494581053
+export SOURCE_DATE_EPOCH=1496706344
 rm -rf %{buildroot}
 pushd ../build32/
 %make_install32
