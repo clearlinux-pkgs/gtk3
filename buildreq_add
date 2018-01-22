@@ -21,3 +21,5 @@ wayland-dev32
 fontconfig-dev32
 freetype-dev32
 libsoup-dev32
+libxml2-dev32
+libxml2-dev
