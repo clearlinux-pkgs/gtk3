@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.22.26
-Release  : 40
+Release  : 41
 URL      : https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.26.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.26.tar.xz
 Summary  : GNOME Accessibility Implementation Library
