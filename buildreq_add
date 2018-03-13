@@ -23,3 +23,7 @@ freetype-dev32
 libsoup-dev32
 libxml2-dev32
 libxml2-dev
+# required because of cups
+cups-dev
+krb5-dev
+e2fsprogs-dev

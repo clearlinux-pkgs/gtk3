@@ -5,3 +5,4 @@
 --enable-xrandr
 --enable-xinerama
 --disable-papi
+--disable-cups
