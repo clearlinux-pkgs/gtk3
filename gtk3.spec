@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.22.28
-Release  : 42
+Release  : 43
 URL      : https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.28.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.28.tar.xz
 Summary  : GTK+ Drawing Kit
@@ -16,7 +16,9 @@ Requires: gtk3-lib
 Requires: gtk3-doc
 Requires: gtk3-locales
 BuildRequires : cairo-dev32
+BuildRequires : cups-dev
 BuildRequires : docbook-xml
+BuildRequires : e2fsprogs-dev
 BuildRequires : fontconfig-dev32
 BuildRequires : freetype-dev32
 BuildRequires : gcc-dev32
@@ -29,6 +31,7 @@ BuildRequires : gobject-introspection-dev
 BuildRequires : gtk-doc
 BuildRequires : gtk-doc-dev
 BuildRequires : inputproto
+BuildRequires : krb5-dev
 BuildRequires : libX11-dev32
 BuildRequires : libXext-dev32
 BuildRequires : libXinerama-dev
@@ -190,7 +193,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1519095768
+export SOURCE_DATE_EPOCH=1521046896
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -203,7 +206,8 @@ export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -f
 --enable-xdamage \
 --enable-xcomposite \
 --enable-xrandr \
---enable-xinerama
+--enable-xinerama \
+--disable-papi
 make  %{?_smp_mflags}
 
 pushd ../build32/
@@ -216,7 +220,15 @@ export LDFLAGS="$LDFLAGS -m32"
 --enable-xdamage \
 --enable-xcomposite \
 --enable-xrandr \
---enable-xinerama   --libdir=/usr/lib32 --build=i686-generic-linux-gnu --host=i686-generic-linux-gnu --target=i686-clr-linux-gnu
+--enable-xinerama \
+--disable-papi --enable-wayland-backend \
+--enable-x11-backend \
+--enable-xdamage \
+--enable-xcomposite \
+--enable-xrandr \
+--enable-xinerama \
+--disable-papi \
+--disable-cups  --libdir=/usr/lib32 --build=i686-generic-linux-gnu --host=i686-generic-linux-gnu --target=i686-clr-linux-gnu
 make  %{?_smp_mflags}
 popd
 %check
@@ -227,7 +239,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1519095768
+export SOURCE_DATE_EPOCH=1521046896
 rm -rf %{buildroot}
 pushd ../build32/
 %make_install32
@@ -1419,6 +1431,7 @@ popd
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-viqr.so
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-xim.so
 /usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-cloudprint.so
+/usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-cups.so
 /usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-file.so
 /usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-lpr.so
 /usr/lib64/libgailutil-3.so.0
