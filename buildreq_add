@@ -23,6 +23,8 @@ freetype-dev32
 libsoup-dev32
 libxml2-dev32
 libxml2-dev
+fribidi-dev32
+fribidi-dev
 # required because of cups
 cups-dev
 krb5-dev
