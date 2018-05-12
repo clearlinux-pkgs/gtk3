@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.22.28
-Release  : 45
+Release  : 46
 URL      : https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.28.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.28.tar.xz
 Summary  : GTK+ Drawing Kit
@@ -32,7 +32,6 @@ BuildRequires : glibc-libc32
 BuildRequires : gobject-introspection-dev
 BuildRequires : gtk-doc
 BuildRequires : gtk-doc-dev
-BuildRequires : inputproto
 BuildRequires : krb5-dev
 BuildRequires : libX11-dev32
 BuildRequires : libXext-dev32
@@ -89,6 +88,7 @@ BuildRequires : pkgconfig(xrandr)
 BuildRequires : wayland-dev
 BuildRequires : wayland-dev32
 BuildRequires : wayland-protocols-dev
+BuildRequires : xorgproto-dev
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -195,7 +195,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523659414
+export SOURCE_DATE_EPOCH=1526135206
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -241,7 +241,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1523659414
+export SOURCE_DATE_EPOCH=1526135206
 rm -rf %{buildroot}
 pushd ../build32/
 %make_install32
