@@ -1,0 +1,3 @@
+mkdir -p %{buildroot}/usr/lib/systemd/system/update-triggers.target.wants
+ln -s /usr/lib/systemd/system/icon-cache-update-trigger.service %{buildroot}/usr/lib/systemd/system/update-triggers.target.wants/icon-cache-update-trigger.service
+install -m 0755 icon-cache-update.sh %{buildroot}/usr/bin

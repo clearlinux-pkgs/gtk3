@@ -1,0 +1,30 @@
+From 43d0a3b75352c5689f05e7dc79f7cd15f515d7ac Mon Sep 17 00:00:00 2001
+From: Jose Lamego <jose.a.lamego@intel.com>
+Date: Fri, 18 May 2018 10:21:31 -0500
+Subject: [PATCH] icon-cache-update: add script
+
+Signed-off-by: Jose Lamego <jose.a.lamego@intel.com>
+---
+ icon-cache-update.sh | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+ create mode 100755 icon-cache-update.sh
+
+diff --git a/icon-cache-update.sh b/icon-cache-update.sh
+new file mode 100755
+index 0000000000..e44112d736
+--- /dev/null
++++ b/icon-cache-update.sh
+@@ -0,0 +1,10 @@
++#!/bin/bash
++if [ -x /usr/bin/gtk-update-icon-cache ]; then
++    for theme in /usr/share/icons/*; do
++        if [[ -d "${theme}" && -e "${theme}/index.theme" ]]; then
++            /usr/bin/gtk-update-icon-cache --force "${theme}"
++	    mkdir -p /var/cache/icons/"${theme##*/}"
++	    mv "${theme}"/icon-theme.cache /var/cache/icons/"${theme##*/}"
++        fi
++    done
++fi
+-- 
+2.17.0
+

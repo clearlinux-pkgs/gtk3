@@ -2,3 +2,5 @@ segfault.patch
 madvise.patch
 ignore-cache-datestamp.patch
 no-gerror.patch
+add-icon-cache-update-script.patch
+expand-search-for-icon-theme.cache.patch

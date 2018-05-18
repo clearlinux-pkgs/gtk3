@@ -1,0 +1,11 @@
+[Unit]
+Description=Update icon cache files
+BindsTo=update-triggers.target
+ConditionPathExists=/usr/bin/icon-cache-update.sh
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/icon-cache-update.sh
+
+[Install]
+WantedBy=update-triggers.target

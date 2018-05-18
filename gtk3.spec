@@ -4,13 +4,15 @@
 #
 Name     : gtk3
 Version  : 3.22.28
-Release  : 46
+Release  : 47
 URL      : https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.28.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.28.tar.xz
+Source1  : icon-cache-update-trigger.service
 Summary  : GTK+ Drawing Kit
 Group    : Development/Tools
 License  : LGPL-2.0 LGPL-2.1
 Requires: gtk3-bin
+Requires: gtk3-config
 Requires: gtk3-data
 Requires: gtk3-lib
 Requires: gtk3-doc
@@ -96,6 +98,8 @@ Patch1: segfault.patch
 Patch2: madvise.patch
 Patch3: ignore-cache-datestamp.patch
 Patch4: no-gerror.patch
+Patch5: add-icon-cache-update-script.patch
+Patch6: expand-search-for-icon-theme.cache.patch
 
 %description
 General Information
@@ -109,9 +113,18 @@ complete application suites.
 Summary: bin components for the gtk3 package.
 Group: Binaries
 Requires: gtk3-data
+Requires: gtk3-config
 
 %description bin
 bin components for the gtk3 package.
+
+
+%package config
+Summary: config components for the gtk3 package.
+Group: Default
+
+%description config
+config components for the gtk3 package.
 
 
 %package data
@@ -186,6 +199,8 @@ locales components for the gtk3 package.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
+%patch6 -p1
 pushd ..
 cp -a gtk+-3.22.28 build32
 popd
@@ -195,7 +210,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1526135206
+export SOURCE_DATE_EPOCH=1526681829
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -241,7 +256,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1526135206
+export SOURCE_DATE_EPOCH=1526681829
 rm -rf %{buildroot}
 pushd ../build32/
 %make_install32
@@ -255,6 +270,13 @@ popd
 %make_install
 %find_lang gtk30-properties
 %find_lang gtk30
+mkdir -p %{buildroot}/usr/lib/systemd/system
+install -m 0644 %{SOURCE1} %{buildroot}/usr/lib/systemd/system/icon-cache-update-trigger.service
+## make_install_append content
+mkdir -p %{buildroot}/usr/lib/systemd/system/update-triggers.target.wants
+ln -s /usr/lib/systemd/system/icon-cache-update-trigger.service %{buildroot}/usr/lib/systemd/system/update-triggers.target.wants/icon-cache-update-trigger.service
+install -m 0755 icon-cache-update.sh %{buildroot}/usr/bin
+## make_install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -274,6 +296,12 @@ popd
 /usr/bin/gtk3-demo-application
 /usr/bin/gtk3-icon-browser
 /usr/bin/gtk3-widget-factory
+/usr/bin/icon-cache-update.sh
+
+%files config
+%defattr(-,root,root,-)
+/usr/lib/systemd/system/icon-cache-update-trigger.service
+/usr/lib/systemd/system/update-triggers.target.wants/icon-cache-update-trigger.service
 
 %files data
 %defattr(-,root,root,-)
