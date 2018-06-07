@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.22.28
-Release  : 47
+Release  : 48
 URL      : https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.28.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.28.tar.xz
 Source1  : icon-cache-update-trigger.service
