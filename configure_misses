@@ -1,7 +1,6 @@
 Configure miss: _lock_file
 Configure miss: whether to write dependencies into .pc files
 Configure miss: x86_64-generic-linux-gnu-cups-config
-Configure miss: COLORD
 Configure miss: XML catalog (/etc/xml/catalog)
 Configure miss: DocBook XML DTD V4.1.2 in XML catalog
 Configure miss: whether to generate man pages
@@ -9,7 +8,6 @@ Configure miss: sassc
 Configure miss: i686-generic-linux-gnu-nm
 Configure miss: _lock_file
 Configure miss: whether to write dependencies into .pc files
-Configure miss: COLORD
 Configure miss: XML catalog (/etc/xml/catalog)
 Configure miss: DocBook XML DTD V4.1.2 in XML catalog
 Configure miss: whether to generate man pages
