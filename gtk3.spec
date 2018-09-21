@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.23.1
-Release  : 50
+Release  : 51
 URL      : https://download.gnome.org/sources/gtk+/3.23/gtk+-3.23.1.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.23/gtk+-3.23.1.tar.xz
 Source1  : icon-cache-update-trigger.service
