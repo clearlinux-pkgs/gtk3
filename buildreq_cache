@@ -1,6 +1,6 @@
-3.23.1
-perl
+3.24.1
 colord-dev
-pkgconfig(iso-codes)
-pkg-config
 gnutls-dev
+perl
+pkg-config
+pkgconfig(iso-codes)

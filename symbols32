@@ -1434,6 +1434,13 @@ libgtk-3.so.0:gtk_color_chooser_set_rgba
 libgtk-3.so.0:gtk_color_chooser_set_use_alpha
 libgtk-3.so.0:gtk_color_chooser_widget_get_type
 libgtk-3.so.0:gtk_color_chooser_widget_new
+libgtk-3.so.0:gtk_color_picker_get_type
+libgtk-3.so.0:gtk_color_picker_kwin_new
+libgtk-3.so.0:gtk_color_picker_new
+libgtk-3.so.0:gtk_color_picker_pick
+libgtk-3.so.0:gtk_color_picker_pick_finish
+libgtk-3.so.0:gtk_color_picker_portal_new
+libgtk-3.so.0:gtk_color_picker_shell_new
 libgtk-3.so.0:gtk_color_selection_dialog_get_color_selection
 libgtk-3.so.0:gtk_color_selection_dialog_get_type
 libgtk-3.so.0:gtk_color_selection_dialog_new
