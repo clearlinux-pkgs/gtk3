@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.24.1
-Release  : 54
+Release  : 55
 URL      : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.1.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.1.tar.xz
 Source1  : icon-cache-update-trigger.service
@@ -115,14 +115,6 @@ This is GTK+ version 3.24.1. GTK+ is a multi-platform toolkit for
 creating graphical user interfaces. Offering a complete set of widgets,
 GTK+ is suitable for projects ranging from small one-off projects to
 complete application suites.
-
-%package abi
-Summary: abi components for the gtk3 package.
-Group: Default
-
-%description abi
-abi components for the gtk3 package.
-
 
 %package bin
 Summary: bin components for the gtk3 package.
@@ -246,7 +238,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541261178
+export SOURCE_DATE_EPOCH=1542737522
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -295,7 +287,7 @@ cd ../build32;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1541261178
+export SOURCE_DATE_EPOCH=1542737522
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gtk3
 cp COPYING %{buildroot}/usr/share/package-licenses/gtk3/COPYING
@@ -325,15 +317,6 @@ install -m 0755 icon-cache-update.sh %{buildroot}/usr/bin
 /usr/lib32/girepository-1.0/Gdk-3.0.typelib
 /usr/lib32/girepository-1.0/GdkX11-3.0.typelib
 /usr/lib32/girepository-1.0/Gtk-3.0.typelib
-
-%files abi
-%defattr(-,root,root,-)
-/usr/share/abi/libgailutil-3.so.0.0.0.abi
-/usr/share/abi/libgailutil-3.so.0.abi
-/usr/share/abi/libgdk-3.so.0.2400.1.abi
-/usr/share/abi/libgdk-3.so.0.abi
-/usr/share/abi/libgtk-3.so.0.2400.1.abi
-/usr/share/abi/libgtk-3.so.0.abi
 
 %files bin
 %defattr(-,root,root,-)
