@@ -717,6 +717,7 @@ libgdk-3.so.0:gdk_x11_free_text_list
 libgdk-3.so.0:gdk_x11_get_default_root_xwindow
 libgdk-3.so.0:gdk_x11_get_default_screen
 libgdk-3.so.0:gdk_x11_get_default_xdisplay
+libgdk-3.so.0:gdk_x11_get_parent_relative_pattern
 libgdk-3.so.0:gdk_x11_get_server_time
 libgdk-3.so.0:gdk_x11_get_xatom_by_name
 libgdk-3.so.0:gdk_x11_get_xatom_by_name_for_display
@@ -1206,6 +1207,7 @@ libgtk-3.so.0:gtk_cell_accessible_parent_edit
 libgtk-3.so.0:gtk_cell_accessible_parent_expand_collapse
 libgtk-3.so.0:gtk_cell_accessible_parent_get_cell_area
 libgtk-3.so.0:gtk_cell_accessible_parent_get_cell_extents
+libgtk-3.so.0:gtk_cell_accessible_parent_get_cell_position
 libgtk-3.so.0:gtk_cell_accessible_parent_get_child_index
 libgtk-3.so.0:gtk_cell_accessible_parent_get_renderer_state
 libgtk-3.so.0:gtk_cell_accessible_parent_get_type
