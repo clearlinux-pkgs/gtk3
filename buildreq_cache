@@ -1,6 +1,7 @@
-3.24.5
+3.24.6
 colord-dev
 gnutls-dev
 perl
 pkg-config
 pkgconfig(iso-codes)
+sassc

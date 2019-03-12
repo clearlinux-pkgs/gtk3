@@ -1209,7 +1209,9 @@ libgtk-3.so.0:gtk_cell_accessible_parent_get_cell_area
 libgtk-3.so.0:gtk_cell_accessible_parent_get_cell_extents
 libgtk-3.so.0:gtk_cell_accessible_parent_get_cell_position
 libgtk-3.so.0:gtk_cell_accessible_parent_get_child_index
+libgtk-3.so.0:gtk_cell_accessible_parent_get_column_header_cells
 libgtk-3.so.0:gtk_cell_accessible_parent_get_renderer_state
+libgtk-3.so.0:gtk_cell_accessible_parent_get_row_header_cells
 libgtk-3.so.0:gtk_cell_accessible_parent_get_type
 libgtk-3.so.0:gtk_cell_accessible_parent_grab_focus
 libgtk-3.so.0:gtk_cell_accessible_parent_update_relationset

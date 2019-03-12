@@ -5,3 +5,5 @@
 --enable-xrandr
 --enable-xinerama
 --disable-papi
+--enable-explicit-deps=yes
+
