@@ -25,6 +25,8 @@ libxml2-dev32
 libxml2-dev
 fribidi-dev32
 fribidi-dev
+libXcursor-dev
+libXcursor-dev32
 # required because of cups
 cups-dev
 krb5-dev
