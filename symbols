@@ -760,6 +760,14 @@ libgdk-3.so.0:gdk_x11_window_set_user_time
 libgdk-3.so.0:gdk_x11_window_set_utf8_property
 libgdk-3.so.0:gdk_x11_xatom_to_atom
 libgdk-3.so.0:gdk_x11_xatom_to_atom_for_display
+libgtk-3.so.0:_gtk_immodule_wayland_create
+libgtk-3.so.0:_gtk_immodule_wayland_exit
+libgtk-3.so.0:_gtk_immodule_wayland_init
+libgtk-3.so.0:_gtk_immodule_wayland_list
+libgtk-3.so.0:_gtk_immodule_xim_create
+libgtk-3.so.0:_gtk_immodule_xim_exit
+libgtk-3.so.0:_gtk_immodule_xim_init
+libgtk-3.so.0:_gtk_immodule_xim_list
 libgtk-3.so.0:gtk_about_dialog_add_credit_section
 libgtk-3.so.0:gtk_about_dialog_get_artists
 libgtk-3.so.0:gtk_about_dialog_get_authors
@@ -2420,6 +2428,9 @@ libgtk-3.so.0:gtk_im_context_simple_add_compose_file
 libgtk-3.so.0:gtk_im_context_simple_add_table
 libgtk-3.so.0:gtk_im_context_simple_get_type
 libgtk-3.so.0:gtk_im_context_simple_new
+libgtk-3.so.0:gtk_im_context_xim_new
+libgtk-3.so.0:gtk_im_context_xim_register_type
+libgtk-3.so.0:gtk_im_context_xim_shutdown
 libgtk-3.so.0:gtk_im_multicontext_append_menuitems
 libgtk-3.so.0:gtk_im_multicontext_get_context_id
 libgtk-3.so.0:gtk_im_multicontext_get_type

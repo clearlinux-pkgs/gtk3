@@ -31,3 +31,6 @@ libXcursor-dev32
 cups-dev
 krb5-dev
 e2fsprogs-dev
+ibus-dev
+ibus
+ibus-libpinyin

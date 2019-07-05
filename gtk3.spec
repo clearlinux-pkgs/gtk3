@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.24.10
-Release  : 67
+Release  : 68
 URL      : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.10.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.10.tar.xz
 Source1  : icon-cache-update-trigger.service
@@ -41,6 +41,9 @@ BuildRequires : gobject-introspection-dev
 BuildRequires : gsettings-desktop-schemas
 BuildRequires : gtk-doc
 BuildRequires : gtk-doc-dev
+BuildRequires : ibus
+BuildRequires : ibus-dev
+BuildRequires : ibus-libpinyin
 BuildRequires : krb5-dev
 BuildRequires : libX11-dev32
 BuildRequires : libXcursor-dev
@@ -248,7 +251,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562224949
+export SOURCE_DATE_EPOCH=1562310891
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -264,7 +267,8 @@ export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -f
 --enable-xrandr \
 --enable-xinerama \
 --disable-papi \
---enable-explicit-deps=yes
+--enable-explicit-deps=yes \
+--with-included-immodules=wayland,xim
 make  %{?_smp_mflags}
 
 pushd ../build32/
@@ -280,7 +284,8 @@ export LDFLAGS="${LDFLAGS}${LDFLAGS:+ }-m32"
 --enable-xrandr \
 --enable-xinerama \
 --disable-papi \
---enable-explicit-deps=yes --enable-wayland-backend \
+--enable-explicit-deps=yes \
+--with-included-immodules=wayland,xim --enable-wayland-backend \
 --enable-x11-backend \
 --enable-xdamage \
 --enable-xcomposite \
@@ -300,7 +305,7 @@ cd ../build32;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1562224949
+export SOURCE_DATE_EPOCH=1562310891
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gtk3
 cp COPYING %{buildroot}/usr/share/package-licenses/gtk3/COPYING
@@ -323,6 +328,9 @@ install -m 0644 %{SOURCE1} %{buildroot}/usr/lib/systemd/system/icon-cache-update
 mkdir -p %{buildroot}/usr/lib/systemd/system/update-triggers.target.wants
 ln -s /usr/lib/systemd/system/icon-cache-update-trigger.service %{buildroot}/usr/lib/systemd/system/update-triggers.target.wants/icon-cache-update-trigger.service
 install -m 0755 icon-cache-update.sh %{buildroot}/usr/bin
+mkdir -p %{buildroot}/usr/lib64/gtk-3.0/3.0.0/
+%{buildroot}/usr/bin/gtk-query-immodules-3.0 > %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.cache
+sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.cache
 ## install_append end
 
 %files
@@ -330,6 +338,7 @@ install -m 0755 icon-cache-update.sh %{buildroot}/usr/bin
 /usr/lib32/girepository-1.0/Gdk-3.0.typelib
 /usr/lib32/girepository-1.0/GdkX11-3.0.typelib
 /usr/lib32/girepository-1.0/Gtk-3.0.typelib
+/usr/lib64/gtk-3.0/3.0.0/immodules.cache
 
 %files bin
 %defattr(-,root,root,-)
@@ -1508,9 +1517,6 @@ install -m 0755 icon-cache-update.sh %{buildroot}/usr/bin
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-ti-er.so
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-ti-et.so
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-viqr.so
-/usr/lib64/gtk-3.0/3.0.0/immodules/im-wayland.so
-/usr/lib64/gtk-3.0/3.0.0/immodules/im-waylandgtk.so
-/usr/lib64/gtk-3.0/3.0.0/immodules/im-xim.so
 /usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-cloudprint.so
 /usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-cups.so
 /usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-file.so
@@ -1534,9 +1540,6 @@ install -m 0755 icon-cache-update.sh %{buildroot}/usr/bin
 /usr/lib32/gtk-3.0/3.0.0/immodules/im-ti-er.so
 /usr/lib32/gtk-3.0/3.0.0/immodules/im-ti-et.so
 /usr/lib32/gtk-3.0/3.0.0/immodules/im-viqr.so
-/usr/lib32/gtk-3.0/3.0.0/immodules/im-wayland.so
-/usr/lib32/gtk-3.0/3.0.0/immodules/im-waylandgtk.so
-/usr/lib32/gtk-3.0/3.0.0/immodules/im-xim.so
 /usr/lib32/gtk-3.0/3.0.0/printbackends/libprintbackend-cloudprint.so
 /usr/lib32/gtk-3.0/3.0.0/printbackends/libprintbackend-file.so
 /usr/lib32/gtk-3.0/3.0.0/printbackends/libprintbackend-lpr.so

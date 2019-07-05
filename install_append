@@ -1,3 +1,7 @@
 mkdir -p %{buildroot}/usr/lib/systemd/system/update-triggers.target.wants
 ln -s /usr/lib/systemd/system/icon-cache-update-trigger.service %{buildroot}/usr/lib/systemd/system/update-triggers.target.wants/icon-cache-update-trigger.service
 install -m 0755 icon-cache-update.sh %{buildroot}/usr/bin
+
+mkdir -p %{buildroot}/usr/lib64/gtk-3.0/3.0.0/
+%{buildroot}/usr/bin/gtk-query-immodules-3.0 > %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.cache
+sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.cache
