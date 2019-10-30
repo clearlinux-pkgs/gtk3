@@ -5,3 +5,4 @@ perl
 pkg-config
 pkgconfig(iso-codes)
 sassc
+util-linux

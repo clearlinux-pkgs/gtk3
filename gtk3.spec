@@ -4,11 +4,11 @@
 #
 Name     : gtk3
 Version  : 3.24.12
-Release  : 70
+Release  : 71
 URL      : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.12.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.12.tar.xz
 Source1  : icon-cache-update-trigger.service
-Summary  : GNOME Accessibility Implementation Library
+Summary  : GObject-based multi-platform GUI toolkit
 Group    : Development/Tools
 License  : LGPL-2.0 LGPL-2.1
 Requires: gtk3-bin = %{version}-%{release}
@@ -105,13 +105,11 @@ BuildRequires : pkgconfig(xcomposite)
 BuildRequires : pkgconfig(xi)
 BuildRequires : pkgconfig(xrandr)
 BuildRequires : sassc
+BuildRequires : util-linux
 BuildRequires : wayland-dev
 BuildRequires : wayland-dev32
 BuildRequires : wayland-protocols-dev
 BuildRequires : xorgproto-dev
-# Suppress stripping binaries
-%define __strip /bin/true
-%define debug_package %{nil}
 Patch1: segfault.patch
 Patch2: madvise.patch
 Patch3: ignore-cache-datestamp.patch
@@ -120,12 +118,13 @@ Patch5: add-icon-cache-update-script.patch
 Patch6: expand-search-for-icon-theme.cache.patch
 
 %description
-General Information
-===================
-This is GTK+ version 3.24.12. GTK+ is a multi-platform toolkit for
-creating graphical user interfaces. Offering a complete set of widgets,
-GTK+ is suitable for projects ranging from small one-off projects to
-complete application suites.
+Summary
+-------
+* Do not edit the CSS directly, edit the source SCSS files
+* To be able to use the latest/adequate version of SASS, install sassc
+* The configure script will detect whether or not you have sassc installed;
+if you do, it will regenerate the CSS every time you modify the SCSS files
+and rebuild GTK+.
 
 %package bin
 Summary: bin components for the gtk3 package.
@@ -153,6 +152,7 @@ Requires: gtk3-lib = %{version}-%{release}
 Requires: gtk3-bin = %{version}-%{release}
 Requires: gtk3-data = %{version}-%{release}
 Provides: gtk3-devel = %{version}-%{release}
+Requires: gtk3 = %{version}-%{release}
 Requires: gtk3 = %{version}-%{release}
 
 %description dev
@@ -249,7 +249,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570204106
+export SOURCE_DATE_EPOCH=1572465044
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -303,11 +304,11 @@ cd ../build32;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1570204106
+export SOURCE_DATE_EPOCH=1572465044
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gtk3
-cp COPYING %{buildroot}/usr/share/package-licenses/gtk3/COPYING
-cp gdk/COPYING %{buildroot}/usr/share/package-licenses/gtk3/gdk_COPYING
+cp %{_builddir}/gtk+-3.24.12/COPYING %{buildroot}/usr/share/package-licenses/gtk3/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/gtk+-3.24.12/gdk/COPYING %{buildroot}/usr/share/package-licenses/gtk3/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd ../build32/
 %make_install32
 if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
@@ -1550,8 +1551,8 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/gtk3/COPYING
-/usr/share/package-licenses/gtk3/gdk_COPYING
+/usr/share/package-licenses/gtk3/01a6b4bf79aca9b556822601186afab86e8c4fbf
+/usr/share/package-licenses/gtk3/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 
 %files man
 %defattr(0644,root,root,0755)
