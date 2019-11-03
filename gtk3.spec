@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.24.12
-Release  : 71
+Release  : 72
 URL      : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.12.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.12.tar.xz
 Source1  : icon-cache-update-trigger.service
