@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.24.13
-Release  : 73
+Release  : 74
 URL      : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.13.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.13.tar.xz
 Source1  : icon-cache-update-trigger.service
@@ -36,6 +36,7 @@ BuildRequires : gcc-libstdc++32
 BuildRequires : gettext
 BuildRequires : glibc-dev32
 BuildRequires : glibc-libc32
+BuildRequires : gnutls-dev
 BuildRequires : gobject-introspection-dev
 BuildRequires : gsettings-desktop-schemas
 BuildRequires : gtk-doc
@@ -104,6 +105,7 @@ BuildRequires : pkgconfig(xcomposite)
 BuildRequires : pkgconfig(xi)
 BuildRequires : pkgconfig(xrandr)
 BuildRequires : sassc
+BuildRequires : util-linux
 BuildRequires : wayland-dev
 BuildRequires : wayland-dev32
 BuildRequires : wayland-protocols-dev
@@ -116,12 +118,13 @@ Patch5: add-icon-cache-update-script.patch
 Patch6: expand-search-for-icon-theme.cache.patch
 
 %description
-General Information
-===================
-This is GTK+ version 3.24.13. GTK+ is a multi-platform toolkit for
-creating graphical user interfaces. Offering a complete set of widgets,
-GTK+ is suitable for projects ranging from small one-off projects to
-complete application suites.
+Summary
+-------
+* Do not edit the CSS directly, edit the source SCSS files
+* To be able to use the latest/adequate version of SASS, install sassc
+* The configure script will detect whether or not you have sassc installed;
+if you do, it will regenerate the CSS every time you modify the SCSS files
+and rebuild GTK+.
 
 %package bin
 Summary: bin components for the gtk3 package.
@@ -149,6 +152,7 @@ Requires: gtk3-lib = %{version}-%{release}
 Requires: gtk3-bin = %{version}-%{release}
 Requires: gtk3-data = %{version}-%{release}
 Provides: gtk3-devel = %{version}-%{release}
+Requires: gtk3 = %{version}-%{release}
 Requires: gtk3 = %{version}-%{release}
 
 %description dev
@@ -246,7 +250,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576618759
+export SOURCE_DATE_EPOCH=1579202553
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -263,7 +268,8 @@ export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -f
 --enable-xinerama \
 --disable-papi \
 --enable-explicit-deps=yes \
---with-included-immodules=wayland,xim
+--with-included-immodules=wayland,xim \
+--enable-colord=no
 make  %{?_smp_mflags}
 
 pushd ../build32/
@@ -280,7 +286,8 @@ export LDFLAGS="${LDFLAGS}${LDFLAGS:+ }-m32 -mstackrealign"
 --enable-xinerama \
 --disable-papi \
 --enable-explicit-deps=yes \
---with-included-immodules=wayland,xim --enable-wayland-backend \
+--with-included-immodules=wayland,xim \
+--enable-colord=no --enable-wayland-backend \
 --enable-x11-backend \
 --enable-xdamage \
 --enable-xcomposite \
@@ -300,7 +307,7 @@ cd ../build32;
 make VERBOSE=1 V=1 %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1576618759
+export SOURCE_DATE_EPOCH=1579202553
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gtk3
 cp %{_builddir}/gtk+-3.24.13/COPYING %{buildroot}/usr/share/package-licenses/gtk3/ba8966e2473a9969bdcab3dc82274c817cfd98a1
