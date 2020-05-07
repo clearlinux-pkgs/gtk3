@@ -8,3 +8,4 @@
 --enable-explicit-deps=yes
 --with-included-immodules=wayland,xim
 --enable-colord=no
+--enable-installed-tests
