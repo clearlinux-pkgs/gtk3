@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.24.23
-Release  : 83
+Release  : 84
 URL      : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.23.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.23.tar.xz
 Source1  : icon-cache-update-trigger.service
@@ -21,20 +21,11 @@ Requires: gtk3-services = %{version}-%{release}
 Requires: gsettings-desktop-schemas
 BuildRequires : buildreq-gnome
 BuildRequires : buildreq-meson
-BuildRequires : cairo-dev32
 BuildRequires : cups-dev
 BuildRequires : docbook-xml
 BuildRequires : e2fsprogs-dev
-BuildRequires : fontconfig-dev32
-BuildRequires : freetype-dev32
 BuildRequires : fribidi-dev
-BuildRequires : fribidi-dev32
-BuildRequires : gcc-dev32
-BuildRequires : gcc-libgcc32
-BuildRequires : gcc-libstdc++32
 BuildRequires : gettext
-BuildRequires : glibc-dev32
-BuildRequires : glibc-libc32
 BuildRequires : gobject-introspection-dev
 BuildRequires : gsettings-desktop-schemas
 BuildRequires : gtk-doc
@@ -43,41 +34,22 @@ BuildRequires : ibus
 BuildRequires : ibus-dev
 BuildRequires : ibus-libpinyin
 BuildRequires : krb5-dev
-BuildRequires : libX11-dev32
 BuildRequires : libXcursor-dev
-BuildRequires : libXcursor-dev32
-BuildRequires : libXext-dev32
 BuildRequires : libXinerama-dev
-BuildRequires : libXinerama-dev32
-BuildRequires : libepoxy-dev32
 BuildRequires : libinput-dev
-BuildRequires : libsoup-dev32
 BuildRequires : libxkbcommon-dev
-BuildRequires : libxkbcommon-dev32
 BuildRequires : libxml2-dev
-BuildRequires : libxml2-dev32
 BuildRequires : libxslt-bin
 BuildRequires : mesa-dev
-BuildRequires : mesa-dev32
-BuildRequires : pango-dev32
 BuildRequires : perl
 BuildRequires : perl(XML::Parser)
 BuildRequires : pkg-config
 BuildRequires : pkgconfig(32atk)
 BuildRequires : pkgconfig(32atk-bridge-2.0)
-BuildRequires : pkgconfig(32cairo)
-BuildRequires : pkgconfig(32cairo-gobject)
 BuildRequires : pkgconfig(32epoxy)
-BuildRequires : pkgconfig(32fribidi)
 BuildRequires : pkgconfig(32gdk-pixbuf-2.0)
-BuildRequires : pkgconfig(32glib-2.0)
-BuildRequires : pkgconfig(32gmodule-2.0)
-BuildRequires : pkgconfig(32harfbuzz)
-BuildRequires : pkgconfig(32json-glib-1.0)
 BuildRequires : pkgconfig(32libxml-2.0)
 BuildRequires : pkgconfig(32pango)
-BuildRequires : pkgconfig(32pangoft2)
-BuildRequires : pkgconfig(32rest-0.7)
 BuildRequires : pkgconfig(32xcomposite)
 BuildRequires : pkgconfig(32xdamage)
 BuildRequires : pkgconfig(32xfixes)
@@ -104,7 +76,6 @@ BuildRequires : pkgconfig(xi)
 BuildRequires : pkgconfig(xrandr)
 BuildRequires : sassc
 BuildRequires : wayland-dev
-BuildRequires : wayland-dev32
 BuildRequires : wayland-protocols-dev
 BuildRequires : xorgproto-dev
 Patch1: segfault.patch
@@ -154,18 +125,6 @@ Requires: gtk3 = %{version}-%{release}
 dev components for the gtk3 package.
 
 
-%package dev32
-Summary: dev32 components for the gtk3 package.
-Group: Default
-Requires: gtk3-lib32 = %{version}-%{release}
-Requires: gtk3-bin = %{version}-%{release}
-Requires: gtk3-data = %{version}-%{release}
-Requires: gtk3-dev = %{version}-%{release}
-
-%description dev32
-dev32 components for the gtk3 package.
-
-
 %package doc
 Summary: doc components for the gtk3 package.
 Group: Documentation
@@ -183,16 +142,6 @@ Requires: gtk3-license = %{version}-%{release}
 
 %description lib
 lib components for the gtk3 package.
-
-
-%package lib32
-Summary: lib32 components for the gtk3 package.
-Group: Default
-Requires: gtk3-data = %{version}-%{release}
-Requires: gtk3-license = %{version}-%{release}
-
-%description lib32
-lib32 components for the gtk3 package.
 
 
 %package license
@@ -245,16 +194,13 @@ cd %{_builddir}/gtk+-3.24.23
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
-pushd ..
-cp -a gtk+-3.24.23 build32
-popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1599838830
+export SOURCE_DATE_EPOCH=1600272364
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -276,56 +222,19 @@ export CXXFLAGS="$CXXFLAGS -O3 -falign-functions=32 -ffat-lto-objects -flto=4 -f
 --enable-installed-tests
 make  %{?_smp_mflags}
 
-pushd ../build32/
-export PKG_CONFIG_PATH="/usr/lib32/pkgconfig"
-export ASFLAGS="${ASFLAGS}${ASFLAGS:+ }--32"
-export CFLAGS="${CFLAGS}${CFLAGS:+ }-m32 -mstackrealign"
-export CXXFLAGS="${CXXFLAGS}${CXXFLAGS:+ }-m32 -mstackrealign"
-export LDFLAGS="${LDFLAGS}${LDFLAGS:+ }-m32 -mstackrealign"
-%configure --disable-static --enable-wayland-backend \
---enable-x11-backend \
---enable-xdamage \
---enable-xcomposite \
---enable-xrandr \
---enable-xinerama \
---disable-papi \
---enable-explicit-deps=yes \
---with-included-immodules=wayland,xim \
---enable-colord=no \
---enable-installed-tests --enable-wayland-backend \
---enable-x11-backend \
---enable-xdamage \
---enable-xcomposite \
---enable-xrandr \
---enable-xinerama \
---disable-papi \
---disable-cups  --libdir=/usr/lib32 --build=i686-generic-linux-gnu --host=i686-generic-linux-gnu --target=i686-clr-linux-gnu
-make  %{?_smp_mflags}
-popd
 %check
 export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check || :
-cd ../build32;
-make %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1599838830
+export SOURCE_DATE_EPOCH=1600272364
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gtk3
 cp %{_builddir}/gtk+-3.24.23/COPYING %{buildroot}/usr/share/package-licenses/gtk3/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 cp %{_builddir}/gtk+-3.24.23/gdk/COPYING %{buildroot}/usr/share/package-licenses/gtk3/01a6b4bf79aca9b556822601186afab86e8c4fbf
-pushd ../build32/
-%make_install32
-if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
-then
-pushd %{buildroot}/usr/lib32/pkgconfig
-for i in *.pc ; do ln -s $i 32$i ; done
-popd
-fi
-popd
 %make_install
 %find_lang gtk30-properties
 %find_lang gtk30
@@ -343,9 +252,6 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 
 %files
 %defattr(-,root,root,-)
-/usr/lib32/girepository-1.0/Gdk-3.0.typelib
-/usr/lib32/girepository-1.0/GdkX11-3.0.typelib
-/usr/lib32/girepository-1.0/Gtk-3.0.typelib
 /usr/lib64/gtk-3.0/3.0.0/immodules.cache
 
 %files bin
@@ -821,28 +727,6 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 /usr/lib64/pkgconfig/gtk+-wayland-3.0.pc
 /usr/lib64/pkgconfig/gtk+-x11-3.0.pc
 /usr/share/aclocal/*.m4
-
-%files dev32
-%defattr(-,root,root,-)
-/usr/lib32/libgailutil-3.so
-/usr/lib32/libgdk-3.so
-/usr/lib32/libgtk-3.so
-/usr/lib32/pkgconfig/32gail-3.0.pc
-/usr/lib32/pkgconfig/32gdk-3.0.pc
-/usr/lib32/pkgconfig/32gdk-wayland-3.0.pc
-/usr/lib32/pkgconfig/32gdk-x11-3.0.pc
-/usr/lib32/pkgconfig/32gtk+-3.0.pc
-/usr/lib32/pkgconfig/32gtk+-unix-print-3.0.pc
-/usr/lib32/pkgconfig/32gtk+-wayland-3.0.pc
-/usr/lib32/pkgconfig/32gtk+-x11-3.0.pc
-/usr/lib32/pkgconfig/gail-3.0.pc
-/usr/lib32/pkgconfig/gdk-3.0.pc
-/usr/lib32/pkgconfig/gdk-wayland-3.0.pc
-/usr/lib32/pkgconfig/gdk-x11-3.0.pc
-/usr/lib32/pkgconfig/gtk+-3.0.pc
-/usr/lib32/pkgconfig/gtk+-unix-print-3.0.pc
-/usr/lib32/pkgconfig/gtk+-wayland-3.0.pc
-/usr/lib32/pkgconfig/gtk+-x11-3.0.pc
 
 %files doc
 %defattr(0644,root,root,0755)
@@ -1537,28 +1421,6 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 /usr/lib64/libgdk-3.so.0.2404.19
 /usr/lib64/libgtk-3.so.0
 /usr/lib64/libgtk-3.so.0.2404.19
-
-%files lib32
-%defattr(-,root,root,-)
-/usr/lib32/gtk-3.0/3.0.0/immodules/im-am-et.so
-/usr/lib32/gtk-3.0/3.0.0/immodules/im-cedilla.so
-/usr/lib32/gtk-3.0/3.0.0/immodules/im-cyrillic-translit.so
-/usr/lib32/gtk-3.0/3.0.0/immodules/im-inuktitut.so
-/usr/lib32/gtk-3.0/3.0.0/immodules/im-ipa.so
-/usr/lib32/gtk-3.0/3.0.0/immodules/im-multipress.so
-/usr/lib32/gtk-3.0/3.0.0/immodules/im-thai.so
-/usr/lib32/gtk-3.0/3.0.0/immodules/im-ti-er.so
-/usr/lib32/gtk-3.0/3.0.0/immodules/im-ti-et.so
-/usr/lib32/gtk-3.0/3.0.0/immodules/im-viqr.so
-/usr/lib32/gtk-3.0/3.0.0/printbackends/libprintbackend-cloudprint.so
-/usr/lib32/gtk-3.0/3.0.0/printbackends/libprintbackend-file.so
-/usr/lib32/gtk-3.0/3.0.0/printbackends/libprintbackend-lpr.so
-/usr/lib32/libgailutil-3.so.0
-/usr/lib32/libgailutil-3.so.0.0.0
-/usr/lib32/libgdk-3.so.0
-/usr/lib32/libgdk-3.so.0.2404.19
-/usr/lib32/libgtk-3.so.0
-/usr/lib32/libgtk-3.so.0.2404.19
 
 %files license
 %defattr(0644,root,root,0755)
