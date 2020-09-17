@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.24.23
-Release  : 84
+Release  : 85
 URL      : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.23.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.23.tar.xz
 Source1  : icon-cache-update-trigger.service
@@ -44,17 +44,6 @@ BuildRequires : mesa-dev
 BuildRequires : perl
 BuildRequires : perl(XML::Parser)
 BuildRequires : pkg-config
-BuildRequires : pkgconfig(32atk)
-BuildRequires : pkgconfig(32atk-bridge-2.0)
-BuildRequires : pkgconfig(32epoxy)
-BuildRequires : pkgconfig(32gdk-pixbuf-2.0)
-BuildRequires : pkgconfig(32libxml-2.0)
-BuildRequires : pkgconfig(32pango)
-BuildRequires : pkgconfig(32xcomposite)
-BuildRequires : pkgconfig(32xdamage)
-BuildRequires : pkgconfig(32xfixes)
-BuildRequires : pkgconfig(32xi)
-BuildRequires : pkgconfig(32xrandr)
 BuildRequires : pkgconfig(atk)
 BuildRequires : pkgconfig(atk-bridge-2.0)
 BuildRequires : pkgconfig(cairo)
@@ -200,7 +189,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1600272364
+export SOURCE_DATE_EPOCH=1600318340
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -230,7 +219,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1600272364
+export SOURCE_DATE_EPOCH=1600318340
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gtk3
 cp %{_builddir}/gtk+-3.24.23/COPYING %{buildroot}/usr/share/package-licenses/gtk3/ba8966e2473a9969bdcab3dc82274c817cfd98a1
