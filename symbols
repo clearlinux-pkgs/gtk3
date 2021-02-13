@@ -501,11 +501,13 @@ libgdk-3.so.0:gdk_wayland_monitor_get_wl_output
 libgdk-3.so.0:gdk_wayland_seat_get_wl_seat
 libgdk-3.so.0:gdk_wayland_selection_add_targets_libgtk_only
 libgdk-3.so.0:gdk_wayland_selection_clear_targets_libgtk_only
+libgdk-3.so.0:gdk_wayland_window_add_frame_callback_surface
 libgdk-3.so.0:gdk_wayland_window_announce_csd
 libgdk-3.so.0:gdk_wayland_window_announce_ssd
 libgdk-3.so.0:gdk_wayland_window_export_handle
 libgdk-3.so.0:gdk_wayland_window_get_type
 libgdk-3.so.0:gdk_wayland_window_get_wl_surface
+libgdk-3.so.0:gdk_wayland_window_remove_frame_callback_surface
 libgdk-3.so.0:gdk_wayland_window_set_application_id
 libgdk-3.so.0:gdk_wayland_window_set_dbus_properties_libgtk_only
 libgdk-3.so.0:gdk_wayland_window_set_transient_for_exported
