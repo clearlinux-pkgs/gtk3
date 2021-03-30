@@ -1,8 +1,8 @@
 # This file contains pkgconfig build requirements that get picked up
 # but are undesirable. One entry per line, no whitespace.
-colord
-32dnl
 32colord
+32dnl
 32iso-codes
-tracker-sparql-3.0
 32tracker-sparql-3.0
+colord
+tracker-sparql-3.0

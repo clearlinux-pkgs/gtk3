@@ -1,21 +1,21 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
-gobject-introspection-dev
-xorgproto-dev
-libXinerama-dev
-wayland-dev
-wayland-protocols-dev
 docbook-xml
+fribidi-dev
+gobject-introspection-dev
+libXcursor-dev
+libXinerama-dev
 libinput-dev
 libxkbcommon-dev
-mesa-dev
 libxml2-dev
-fribidi-dev
-libXcursor-dev
+mesa-dev
+wayland-dev
+wayland-protocols-dev
+xorgproto-dev
 # required because of cups
 cups-dev
-krb5-dev
 e2fsprogs-dev
-ibus-dev
 ibus
+ibus-dev
 ibus-libpinyin
+krb5-dev

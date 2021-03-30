@@ -1,11 +1,11 @@
 # This file contains additional pkgconfig build requirements that did
 # not get picked up automatically. One name per line, no whitespace.
 atk
-pango
-gdk-pixbuf-2.0
 atk-bridge-2.0
-xi
 epoxy
+gdk-pixbuf-2.0
 libxml-2.0
-xrandr
+pango
 xcomposite
+xi
+xrandr
