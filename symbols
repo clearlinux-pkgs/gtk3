@@ -1943,6 +1943,7 @@ libgtk-3.so.0:gtk_file_chooser_unselect_all
 libgtk-3.so.0:gtk_file_chooser_unselect_file
 libgtk-3.so.0:gtk_file_chooser_unselect_filename
 libgtk-3.so.0:gtk_file_chooser_unselect_uri
+libgtk-3.so.0:gtk_file_chooser_widget_accessible_get_type
 libgtk-3.so.0:gtk_file_chooser_widget_get_type
 libgtk-3.so.0:gtk_file_chooser_widget_new
 libgtk-3.so.0:gtk_file_filter_add_custom
