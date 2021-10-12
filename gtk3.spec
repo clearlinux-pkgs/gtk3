@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.24.30
-Release  : 93
+Release  : 94
 URL      : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.30.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.30.tar.xz
 Source1  : icon-cache-update-trigger.service
@@ -13,6 +13,7 @@ Group    : Development/Tools
 License  : LGPL-2.0 LGPL-2.1
 Requires: gtk3-bin = %{version}-%{release}
 Requires: gtk3-data = %{version}-%{release}
+Requires: gtk3-filemap = %{version}-%{release}
 Requires: gtk3-lib = %{version}-%{release}
 Requires: gtk3-license = %{version}-%{release}
 Requires: gtk3-locales = %{version}-%{release}
@@ -85,6 +86,7 @@ Group: Binaries
 Requires: gtk3-data = %{version}-%{release}
 Requires: gtk3-license = %{version}-%{release}
 Requires: gtk3-services = %{version}-%{release}
+Requires: gtk3-filemap = %{version}-%{release}
 
 %description bin
 bin components for the gtk3 package.
@@ -120,11 +122,20 @@ Requires: gtk3-man = %{version}-%{release}
 doc components for the gtk3 package.
 
 
+%package filemap
+Summary: filemap components for the gtk3 package.
+Group: Default
+
+%description filemap
+filemap components for the gtk3 package.
+
+
 %package lib
 Summary: lib components for the gtk3 package.
 Group: Libraries
 Requires: gtk3-data = %{version}-%{release}
 Requires: gtk3-license = %{version}-%{release}
+Requires: gtk3-filemap = %{version}-%{release}
 
 %description lib
 lib components for the gtk3 package.
@@ -180,21 +191,24 @@ cd %{_builddir}/gtk+-3.24.30
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
+pushd ..
+cp -a gtk+-3.24.30 buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1625847277
+export SOURCE_DATE_EPOCH=1634063003
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=4 -fno-semantic-interposition -mprefer-vector-width=256 "
-export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=4 -fno-semantic-interposition -mprefer-vector-width=256 "
-export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=4 -fno-semantic-interposition -mprefer-vector-width=256 "
-export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=4 -fno-semantic-interposition -mprefer-vector-width=256 "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mno-vzeroupper -mprefer-vector-width=256 "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mno-vzeroupper -mprefer-vector-width=256 "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mno-vzeroupper -mprefer-vector-width=256 "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -flto=auto -fno-semantic-interposition -mno-vzeroupper -mprefer-vector-width=256 "
 %configure --disable-static --enable-wayland-backend \
 --enable-x11-backend \
 --enable-xdamage \
@@ -208,19 +222,45 @@ export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -ffat-lto-objects -fl
 --enable-installed-tests
 make  %{?_smp_mflags}
 
+unset PKG_CONFIG_PATH
+pushd ../buildavx2/
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3"
+export FFLAGS="$FFLAGS -m64 -march=x86-64-v3"
+export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3"
+export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3"
+%configure --disable-static --enable-wayland-backend \
+--enable-x11-backend \
+--enable-xdamage \
+--enable-xcomposite \
+--enable-xrandr \
+--enable-xinerama \
+--disable-papi \
+--enable-explicit-deps=yes \
+--with-included-immodules=wayland,xim \
+--enable-colord=no \
+--enable-installed-tests
+make  %{?_smp_mflags}
+popd
 %check
 export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check || :
+cd ../buildavx2;
+make %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1625847277
+export SOURCE_DATE_EPOCH=1634063003
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gtk3
 cp %{_builddir}/gtk+-3.24.30/COPYING %{buildroot}/usr/share/package-licenses/gtk3/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 cp %{_builddir}/gtk+-3.24.30/gdk/COPYING %{buildroot}/usr/share/package-licenses/gtk3/01a6b4bf79aca9b556822601186afab86e8c4fbf
+pushd ../buildavx2/
+%make_install_v3
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+popd
 %make_install
 %find_lang gtk30-properties
 %find_lang gtk30
@@ -253,6 +293,7 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 /usr/bin/gtk3-icon-browser
 /usr/bin/gtk3-widget-factory
 /usr/bin/icon-cache-update.sh
+/usr/share/clear/optimized-elf/bin*
 
 %files data
 %defattr(-,root,root,-)
@@ -1388,6 +1429,10 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 /usr/share/gtk-doc/html/gtk3/window-default.png
 /usr/share/gtk-doc/html/gtk3/window.png
 
+%files filemap
+%defattr(-,root,root,-)
+/usr/share/clear/filemap/filemap-gtk3
+
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-am-et.so
@@ -1409,6 +1454,7 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 /usr/lib64/libgdk-3.so.0.2404.26
 /usr/lib64/libgtk-3.so.0
 /usr/lib64/libgtk-3.so.0.2404.26
+/usr/share/clear/optimized-elf/lib*
 
 %files license
 %defattr(0644,root,root,0755)
@@ -2680,6 +2726,7 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 /usr/libexec/installed-tests/gtk+/value
 /usr/libexec/installed-tests/gtk+/visual
 /usr/libexec/installed-tests/gtk+/window
+/usr/share/clear/optimized-elf/test*
 /usr/share/installed-tests/gtk+/a11ychildren.test
 /usr/share/installed-tests/gtk+/a11yderive.test
 /usr/share/installed-tests/gtk+/a11ymisc.test
