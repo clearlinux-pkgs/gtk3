@@ -6,10 +6,10 @@ Configure miss: _lock_file
 Configure miss: _lock_file
 Configure miss: dev/evdev/input.h
 Configure miss: dev/evdev/input.h
-Configure miss: dev/evdev/input.h presence
-Configure miss: dev/evdev/input.h presence
-Configure miss: dev/evdev/input.h usability
-Configure miss: dev/evdev/input.h usability
+Configure miss: g++ option to enable C++11 features
+Configure miss: g++ option to enable C++11 features
+Configure miss: gcc options needed to detect all undeclared functions
+Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: whether to generate man pages
 Configure miss: whether to generate man pages
 Configure miss: whether to use colord
