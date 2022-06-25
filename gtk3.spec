@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.24.34
-Release  : 100
+Release  : 101
 URL      : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.34.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.34.tar.xz
 Source1  : icon-cache-update-trigger.service
@@ -199,7 +199,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656040657
+export SOURCE_DATE_EPOCH=1656122900
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -251,7 +251,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1656040657
+export SOURCE_DATE_EPOCH=1656122900
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gtk3
 cp %{_builddir}/gtk+-3.24.34/COPYING %{buildroot}/usr/share/package-licenses/gtk3/ba8966e2473a9969bdcab3dc82274c817cfd98a1
@@ -1434,16 +1434,6 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/glibc-hwcaps/x86-64-v3/im-am-et.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/im-cedilla.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/im-cyrillic-translit.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/im-inuktitut.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/im-ipa.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/im-multipress.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/im-thai.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/im-ti-er.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/im-ti-et.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/im-viqr.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgailutil-3.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgailutil-3.so.0
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgailutil-3.so.0.0.0
@@ -1453,9 +1443,6 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-3.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-3.so.0
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-3.so.0.2404.30
-/usr/lib64/glibc-hwcaps/x86-64-v3/libprintbackend-cups.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/libprintbackend-file.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/libprintbackend-lpr.so
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-am-et.so
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-cedilla.so
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-cyrillic-translit.so
