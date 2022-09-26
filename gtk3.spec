@@ -4,7 +4,7 @@
 #
 Name     : gtk3
 Version  : 3.24.34
-Release  : 107
+Release  : 108
 URL      : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.34.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.34.tar.xz
 Source1  : icon-cache-update-trigger.service
@@ -199,7 +199,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656715438
+export SOURCE_DATE_EPOCH=1664153988
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -251,11 +251,11 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1656715438
+export SOURCE_DATE_EPOCH=1664153988
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gtk3
-cp %{_builddir}/gtk+-3.24.34/COPYING %{buildroot}/usr/share/package-licenses/gtk3/ba8966e2473a9969bdcab3dc82274c817cfd98a1
-cp %{_builddir}/gtk+-3.24.34/gdk/COPYING %{buildroot}/usr/share/package-licenses/gtk3/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/gtk+-%{version}/COPYING %{buildroot}/usr/share/package-licenses/gtk3/ba8966e2473a9969bdcab3dc82274c817cfd98a1 || :
+cp %{_builddir}/gtk+-%{version}/gdk/COPYING %{buildroot}/usr/share/package-licenses/gtk3/01a6b4bf79aca9b556822601186afab86e8c4fbf || :
 pushd ../buildavx2/
 %make_install_v3
 popd
