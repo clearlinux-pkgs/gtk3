@@ -1,18 +1,11 @@
-Configure miss: DocBook XML DTD V4.1.2 in XML catalog
-Configure miss: DocBook XML DTD V4.1.2 in XML catalog
-Configure miss: XML catalog (/etc/xml/catalog)
-Configure miss: XML catalog (/etc/xml/catalog)
-Configure miss: _lock_file
-Configure miss: _lock_file
-Configure miss: dev/evdev/input.h
-Configure miss: dev/evdev/input.h
-Configure miss: g++ option to enable C++11 features
-Configure miss: g++ option to enable C++11 features
-Configure miss: gcc options needed to detect all undeclared functions
-Configure miss: gcc options needed to detect all undeclared functions
-Configure miss: whether to generate man pages
-Configure miss: whether to generate man pages
-Configure miss: whether to use colord
-Configure miss: whether to use colord
-Configure miss: x86_64-generic-linux-gnu-cups-config
-Configure miss: x86_64-generic-linux-gnu-cups-config
+Configure miss: ../gtk/gtkcalendar.c:742:13: warning: format not a string literal, format string not checked [-Wformat-nonliteral]
+
+Configure miss: ../gtk/gtkcalendar.c:742:13: warning: format not a string literal, format string not checked [-Wformat-nonliteral]
+
+Configure miss: ../gtk/gtkcalendar.c:747:17: warning: format not a string literal, format string not checked [-Wformat-nonliteral]
+
+Configure miss: ../gtk/gtkcalendar.c:747:17: warning: format not a string literal, format string not checked [-Wformat-nonliteral]
+
+Configure miss: ../gtk/gtkcalendar.c:751:11: warning: format not a string literal, format string not checked [-Wformat-nonliteral]
+
+Configure miss: ../gtk/gtkcalendar.c:751:11: warning: format not a string literal, format string not checked [-Wformat-nonliteral]
