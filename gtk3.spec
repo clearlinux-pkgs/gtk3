@@ -5,7 +5,7 @@
 #
 Name     : gtk3
 Version  : 3.24.37
-Release  : 116
+Release  : 117
 URL      : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.37.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.37.tar.xz
 Source1  : icon-cache-update-trigger.service
@@ -14,7 +14,6 @@ Group    : Development/Tools
 License  : LGPL-2.0 LGPL-2.1
 Requires: gtk3-bin = %{version}-%{release}
 Requires: gtk3-data = %{version}-%{release}
-Requires: gtk3-filemap = %{version}-%{release}
 Requires: gtk3-lib = %{version}-%{release}
 Requires: gtk3-license = %{version}-%{release}
 Requires: gtk3-locales = %{version}-%{release}
@@ -77,7 +76,6 @@ Group: Binaries
 Requires: gtk3-data = %{version}-%{release}
 Requires: gtk3-license = %{version}-%{release}
 Requires: gtk3-services = %{version}-%{release}
-Requires: gtk3-filemap = %{version}-%{release}
 
 %description bin
 bin components for the gtk3 package.
@@ -104,20 +102,11 @@ Requires: gtk3 = %{version}-%{release}
 dev components for the gtk3 package.
 
 
-%package filemap
-Summary: filemap components for the gtk3 package.
-Group: Default
-
-%description filemap
-filemap components for the gtk3 package.
-
-
 %package lib
 Summary: lib components for the gtk3 package.
 Group: Libraries
 Requires: gtk3-data = %{version}-%{release}
 Requires: gtk3-license = %{version}-%{release}
-Requires: gtk3-filemap = %{version}-%{release}
 
 %description lib
 lib components for the gtk3 package.
@@ -142,6 +131,7 @@ locales components for the gtk3 package.
 %package services
 Summary: services components for the gtk3 package.
 Group: Systemd services
+Requires: systemd
 
 %description services
 services components for the gtk3 package.
@@ -174,15 +164,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680034124
+export SOURCE_DATE_EPOCH=1682979892
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -Ofast -falign-functions=32 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -fno-semantic-interposition -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dinstalled_tests=true  builddir
 ninja -v -C builddir
 CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -O3" CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 " LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dinstalled_tests=true  builddiravx2
@@ -222,6 +212,16 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 
 %files bin
 %defattr(-,root,root,-)
+/V3/usr/bin/gtk-builder-tool
+/V3/usr/bin/gtk-encode-symbolic-svg
+/V3/usr/bin/gtk-launch
+/V3/usr/bin/gtk-query-immodules-3.0
+/V3/usr/bin/gtk-query-settings
+/V3/usr/bin/gtk-update-icon-cache
+/V3/usr/bin/gtk3-demo
+/V3/usr/bin/gtk3-demo-application
+/V3/usr/bin/gtk3-icon-browser
+/V3/usr/bin/gtk3-widget-factory
 /usr/bin/gtk-builder-tool
 /usr/bin/gtk-encode-symbolic-svg
 /usr/bin/gtk-launch
@@ -233,7 +233,6 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 /usr/bin/gtk3-icon-browser
 /usr/bin/gtk3-widget-factory
 /usr/bin/icon-cache-update.sh
-/usr/share/clear/optimized-elf/bin*
 
 %files data
 %defattr(-,root,root,-)
@@ -287,6 +286,9 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 
 %files dev
 %defattr(-,root,root,-)
+/V3/usr/lib64/libgailutil-3.so
+/V3/usr/lib64/libgdk-3.so
+/V3/usr/lib64/libgtk-3.so
 /usr/include/gail-3.0/libgail-util/gail-util.h
 /usr/include/gail-3.0/libgail-util/gailmisc.h
 /usr/include/gail-3.0/libgail-util/gailtextutil.h
@@ -689,9 +691,6 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 /usr/include/gtk-3.0/unix-print/gtk/gtkprintunixdialog.h
 /usr/include/gtk-3.0/unix-print/gtk/gtkunixprint-autocleanups.h
 /usr/include/gtk-3.0/unix-print/gtk/gtkunixprint.h
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgailutil-3.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgdk-3.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-3.so
 /usr/lib64/libgailutil-3.so
 /usr/lib64/libgdk-3.so
 /usr/lib64/libgtk-3.so
@@ -705,18 +704,29 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 /usr/lib64/pkgconfig/gtk+-x11-3.0.pc
 /usr/share/aclocal/*.m4
 
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-gtk3
-
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgailutil-3.so.0
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgailutil-3.so.0.0.0
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgdk-3.so.0
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgdk-3.so.0.2405.32
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-3.so.0
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-3.so.0.2405.32
+/V3/usr/lib64/gtk-3.0/3.0.0/immodules/im-am-et.so
+/V3/usr/lib64/gtk-3.0/3.0.0/immodules/im-cedilla.so
+/V3/usr/lib64/gtk-3.0/3.0.0/immodules/im-cyrillic-translit.so
+/V3/usr/lib64/gtk-3.0/3.0.0/immodules/im-inuktitut.so
+/V3/usr/lib64/gtk-3.0/3.0.0/immodules/im-ipa.so
+/V3/usr/lib64/gtk-3.0/3.0.0/immodules/im-multipress.so
+/V3/usr/lib64/gtk-3.0/3.0.0/immodules/im-thai.so
+/V3/usr/lib64/gtk-3.0/3.0.0/immodules/im-ti-er.so
+/V3/usr/lib64/gtk-3.0/3.0.0/immodules/im-ti-et.so
+/V3/usr/lib64/gtk-3.0/3.0.0/immodules/im-viqr.so
+/V3/usr/lib64/gtk-3.0/3.0.0/immodules/im-wayland.so
+/V3/usr/lib64/gtk-3.0/3.0.0/immodules/im-xim.so
+/V3/usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-cups.so
+/V3/usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-file.so
+/V3/usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-lpr.so
+/V3/usr/lib64/libgailutil-3.so.0
+/V3/usr/lib64/libgailutil-3.so.0.0.0
+/V3/usr/lib64/libgdk-3.so.0
+/V3/usr/lib64/libgdk-3.so.0.2405.32
+/V3/usr/lib64/libgtk-3.so.0
+/V3/usr/lib64/libgtk-3.so.0.2405.32
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-am-et.so
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-cedilla.so
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-cyrillic-translit.so
@@ -738,7 +748,6 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 /usr/lib64/libgdk-3.so.0.2405.32
 /usr/lib64/libgtk-3.so.0
 /usr/lib64/libgtk-3.so.0.2405.32
-/usr/share/clear/optimized-elf/other*
 
 %files license
 %defattr(0644,root,root,0755)
@@ -752,6 +761,73 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 
 %files tests
 %defattr(-,root,root,-)
+/V3/usr/libexec/installed-tests/gtk+/accel
+/V3/usr/libexec/installed-tests/gtk+/accessibility-dump
+/V3/usr/libexec/installed-tests/gtk+/accessible
+/V3/usr/libexec/installed-tests/gtk+/action
+/V3/usr/libexec/installed-tests/gtk+/adjustment
+/V3/usr/libexec/installed-tests/gtk+/autotestkeywords
+/V3/usr/libexec/installed-tests/gtk+/bitmask
+/V3/usr/libexec/installed-tests/gtk+/builder
+/V3/usr/libexec/installed-tests/gtk+/builderparser
+/V3/usr/libexec/installed-tests/gtk+/cairo
+/V3/usr/libexec/installed-tests/gtk+/cellarea
+/V3/usr/libexec/installed-tests/gtk+/check-cursor-names
+/V3/usr/libexec/installed-tests/gtk+/check-icon-names
+/V3/usr/libexec/installed-tests/gtk+/children
+/V3/usr/libexec/installed-tests/gtk+/clipboard
+/V3/usr/libexec/installed-tests/gtk+/css/api
+/V3/usr/libexec/installed-tests/gtk+/css/nodes/test-css-nodes
+/V3/usr/libexec/installed-tests/gtk+/css/parser/test-css-parser
+/V3/usr/libexec/installed-tests/gtk+/css/style/test-css-style
+/V3/usr/libexec/installed-tests/gtk+/cssprovider
+/V3/usr/libexec/installed-tests/gtk+/defaultvalue
+/V3/usr/libexec/installed-tests/gtk+/derive
+/V3/usr/libexec/installed-tests/gtk+/display
+/V3/usr/libexec/installed-tests/gtk+/displayclose
+/V3/usr/libexec/installed-tests/gtk+/encoding
+/V3/usr/libexec/installed-tests/gtk+/entry
+/V3/usr/libexec/installed-tests/gtk+/firefox-stylecontext
+/V3/usr/libexec/installed-tests/gtk+/floating
+/V3/usr/libexec/installed-tests/gtk+/focus
+/V3/usr/libexec/installed-tests/gtk+/gestures
+/V3/usr/libexec/installed-tests/gtk+/grid
+/V3/usr/libexec/installed-tests/gtk+/gtkmenu
+/V3/usr/libexec/installed-tests/gtk+/icontheme
+/V3/usr/libexec/installed-tests/gtk+/keyhash
+/V3/usr/libexec/installed-tests/gtk+/keysyms
+/V3/usr/libexec/installed-tests/gtk+/listbox
+/V3/usr/libexec/installed-tests/gtk+/misc
+/V3/usr/libexec/installed-tests/gtk+/no-gtk-init
+/V3/usr/libexec/installed-tests/gtk+/notify
+/V3/usr/libexec/installed-tests/gtk+/object
+/V3/usr/libexec/installed-tests/gtk+/objects-finalize
+/V3/usr/libexec/installed-tests/gtk+/papersize
+/V3/usr/libexec/installed-tests/gtk+/rbtree
+/V3/usr/libexec/installed-tests/gtk+/recentmanager
+/V3/usr/libexec/installed-tests/gtk+/rectangle
+/V3/usr/libexec/installed-tests/gtk+/regression-tests
+/V3/usr/libexec/installed-tests/gtk+/revealer-size
+/V3/usr/libexec/installed-tests/gtk+/rgba
+/V3/usr/libexec/installed-tests/gtk+/scrolledwindow
+/V3/usr/libexec/installed-tests/gtk+/seat
+/V3/usr/libexec/installed-tests/gtk+/spinbutton
+/V3/usr/libexec/installed-tests/gtk+/state-record
+/V3/usr/libexec/installed-tests/gtk+/stylecontext
+/V3/usr/libexec/installed-tests/gtk+/templates
+/V3/usr/libexec/installed-tests/gtk+/text
+/V3/usr/libexec/installed-tests/gtk+/textbuffer
+/V3/usr/libexec/installed-tests/gtk+/textiter
+/V3/usr/libexec/installed-tests/gtk+/tree-performance
+/V3/usr/libexec/installed-tests/gtk+/tree-relationships
+/V3/usr/libexec/installed-tests/gtk+/treemodel
+/V3/usr/libexec/installed-tests/gtk+/treepath
+/V3/usr/libexec/installed-tests/gtk+/treeview
+/V3/usr/libexec/installed-tests/gtk+/typename
+/V3/usr/libexec/installed-tests/gtk+/util
+/V3/usr/libexec/installed-tests/gtk+/value
+/V3/usr/libexec/installed-tests/gtk+/visual
+/V3/usr/libexec/installed-tests/gtk+/window
 /usr/libexec/installed-tests/gtk+/a11ytests/about.txt
 /usr/libexec/installed-tests/gtk+/a11ytests/about.ui
 /usr/libexec/installed-tests/gtk+/a11ytests/accessible-name.txt
@@ -1600,7 +1676,6 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 /usr/libexec/installed-tests/gtk+/value
 /usr/libexec/installed-tests/gtk+/visual
 /usr/libexec/installed-tests/gtk+/window
-/usr/share/clear/optimized-elf/test*
 /usr/share/installed-tests/gtk+/a11ychildren.test
 /usr/share/installed-tests/gtk+/a11yderive.test
 /usr/share/installed-tests/gtk+/a11ymisc.test
