@@ -4,10 +4,10 @@
 # Using build pattern: meson
 #
 Name     : gtk3
-Version  : 3.24.37
-Release  : 117
-URL      : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.37.tar.xz
-Source0  : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.37.tar.xz
+Version  : 3.24.38
+Release  : 118
+URL      : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.38.tar.xz
+Source0  : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.38.tar.xz
 Source1  : icon-cache-update-trigger.service
 Summary  : GTK+ Unix print support
 Group    : Development/Tools
@@ -147,8 +147,8 @@ tests components for the gtk3 package.
 
 
 %prep
-%setup -q -n gtk+-3.24.37
-cd %{_builddir}/gtk+-3.24.37
+%setup -q -n gtk+-3.24.38
+cd %{_builddir}/gtk+-3.24.38
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -156,7 +156,7 @@ cd %{_builddir}/gtk+-3.24.37
 %patch5 -p1
 %patch6 -p1
 pushd ..
-cp -a gtk+-3.24.37 buildavx2
+cp -a gtk+-3.24.38 buildavx2
 popd
 
 %build
@@ -164,7 +164,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682979892
+export SOURCE_DATE_EPOCH=1685123239
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -724,9 +724,9 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 /V3/usr/lib64/libgailutil-3.so.0
 /V3/usr/lib64/libgailutil-3.so.0.0.0
 /V3/usr/lib64/libgdk-3.so.0
-/V3/usr/lib64/libgdk-3.so.0.2405.32
+/V3/usr/lib64/libgdk-3.so.0.2406.32
 /V3/usr/lib64/libgtk-3.so.0
-/V3/usr/lib64/libgtk-3.so.0.2405.32
+/V3/usr/lib64/libgtk-3.so.0.2406.32
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-am-et.so
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-cedilla.so
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-cyrillic-translit.so
@@ -745,9 +745,9 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 /usr/lib64/libgailutil-3.so.0
 /usr/lib64/libgailutil-3.so.0.0.0
 /usr/lib64/libgdk-3.so.0
-/usr/lib64/libgdk-3.so.0.2405.32
+/usr/lib64/libgdk-3.so.0.2406.32
 /usr/lib64/libgtk-3.so.0
-/usr/lib64/libgtk-3.so.0.2405.32
+/usr/lib64/libgtk-3.so.0.2406.32
 
 %files license
 %defattr(0644,root,root,0755)
