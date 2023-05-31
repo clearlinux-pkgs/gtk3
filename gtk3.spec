@@ -5,7 +5,7 @@
 #
 Name     : gtk3
 Version  : 3.24.38
-Release  : 118
+Release  : 119
 URL      : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.38.tar.xz
 Source0  : https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.38.tar.xz
 Source1  : icon-cache-update-trigger.service
@@ -164,7 +164,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685123239
+export SOURCE_DATE_EPOCH=1685549315
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -286,9 +286,6 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libgailutil-3.so
-/V3/usr/lib64/libgdk-3.so
-/V3/usr/lib64/libgtk-3.so
 /usr/include/gail-3.0/libgail-util/gail-util.h
 /usr/include/gail-3.0/libgail-util/gailmisc.h
 /usr/include/gail-3.0/libgail-util/gailtextutil.h
@@ -721,11 +718,8 @@ sed -i -e "s/.*Created by.*//g"  %{buildroot}/usr/lib64/gtk-3.0/3.0.0/immodules.
 /V3/usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-cups.so
 /V3/usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-file.so
 /V3/usr/lib64/gtk-3.0/3.0.0/printbackends/libprintbackend-lpr.so
-/V3/usr/lib64/libgailutil-3.so.0
 /V3/usr/lib64/libgailutil-3.so.0.0.0
-/V3/usr/lib64/libgdk-3.so.0
 /V3/usr/lib64/libgdk-3.so.0.2406.32
-/V3/usr/lib64/libgtk-3.so.0
 /V3/usr/lib64/libgtk-3.so.0.2406.32
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-am-et.so
 /usr/lib64/gtk-3.0/3.0.0/immodules/im-cedilla.so
